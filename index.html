@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тимофей Арапов — ведущий свадеб и мероприятий, Санкт-Петербург</title>
+<meta name="description" content="Тимофей Арапов — ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор, настоящий контакт с гостями и атмосфера, в которой можно быть собой.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#111111;
+    --muted:#6E6E6E;
+    --line:#E3E3E3;
+    --black:#0A0A0A;
+    --off:#F5F5F4;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;font-weight:500;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .bw{filter:grayscale(1) contrast(1.06) brightness(.98);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{padding:108px 0;}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  h2{font-size:clamp(30px,4vw,44px);margin:0 0 20px;color:var(--ink);font-weight:500;line-height:1.14;}
+  .lead{font-size:19px;color:var(--muted);max-width:660px;line-height:1.55;}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1180px;margin:0 auto;padding:20px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink);letter-spacing:.01em;}
+  .nav-links{display:flex;gap:30px;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .nav-links a{color:var(--ink);opacity:.62;transition:.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px;}
+  .nav-cta-mobile{display:none;}
+  .btn{
+    display:inline-block;padding:16px 32px;border-radius:var(--radius);
+    font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:#000;}
+  .btn-ghost-dark{border-color:rgba(255,255,255,.55);color:#fff;}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.12);}
+  .text-link{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px;}
+  .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+
+  /* HERO */
+  .hero{
+    position:relative;height:230vh;overflow:hidden;background:#000;
+  }
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .hero-badges{
+    position:absolute;top:148px;right:32px;z-index:2;text-align:right;
+    display:flex;flex-direction:column;gap:48px;max-width:280px;
+  }
+  .badge-big .badge-title{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,3.4vw,42px);
+    letter-spacing:0;text-transform:uppercase;line-height:1.08;color:#fff;margin-bottom:14px;
+    white-space:nowrap;
+  }
+  .badge-big .badge-cap,.badge-stat{
+    font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    color:rgba(255,255,255,.78);line-height:1.6;font-weight:500;
+  }
+
+  /* CUSTOM CURSOR */
+  @media (hover:hover) and (pointer:fine){
+    a,button{cursor:none;}
+    .cursor-trail{
+      position:fixed;inset:0;width:100vw;height:100vh;
+      pointer-events:none;z-index:9999;mix-blend-mode:difference;opacity:0;
+      transition:opacity .2s;
+    }
+  }
+
+  /* INTRO (headline below hero photo) */
+  .intro{padding-top:88px;}
+  .intro h1{font-size:clamp(34px,5vw,56px);line-height:1.1;margin:0 0 22px;color:var(--ink);max-width:760px;}
+  .intro .lead{margin-bottom:36px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+
+  /* FOR-YOU / VALUES GRID (reused for "Для кого я" and "Ценности") */
+  .values-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .values-grid h4{
+    margin:0 0 8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);
+  }
+  .values-grid p{margin:0;font-size:14px;color:var(--muted);line-height:1.5;}
+  @media (max-width:680px){.values-grid{grid-template-columns:1fr;gap:20px;}}
+
+  /* ABOUT */
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.3fr;gap:72px;align-items:start;}
+  .about-photo{overflow:hidden;position:sticky;top:130px;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/4;}
+  .pull-quote{
+    margin:32px 0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-family:'Playfair Display',serif;font-size:23px;font-weight:400;color:var(--ink);font-style:italic;line-height:1.45;
+  }
+
+  /* STATEMENT (big editorial quote over photo) */
+  .statement{position:relative;height:92vh;min-height:540px;overflow:hidden;background:#000;padding:0;}
+  .statement img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .statement::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.1) 30%,rgba(0,0,0,.78));
+  }
+  .statement-text{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;}
+  .statement-text .wrap{padding-bottom:72px;}
+  .statement-text h2{
+    color:#fff;font-size:clamp(28px,4.4vw,50px);max-width:780px;margin:0 0 16px;line-height:1.2;
+  }
+  .statement-text p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.5;max-width:620px;margin:0 0 16px;}
+  .statement-text .cap{
+    color:rgba(255,255,255,.68);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  }
+  .statement.statement-sm{height:62vh;min-height:380px;}
+
+  /* SMALL FRAMED PHOTO INSET ("window") */
+  .inset-photo{
+    float:right;width:170px;margin:4px 0 20px 32px;padding:10px 10px 14px;background:#fff;
+    box-shadow:0 18px 34px rgba(0,0,0,.16);transform:rotate(1.6deg);
+  }
+  .inset-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;}
+  .inset-photo span{display:block;margin-top:8px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;}
+  @media (max-width:680px){.inset-photo{float:none;width:140px;margin:0 auto 22px;}}
+
+  /* SMALL GROOM-PROMO VIDEO INSET */
+  .groom-promo{float:right;width:170px;margin:4px 0 20px 32px;}
+  .groom-promo .video-thumb{aspect-ratio:9/13;}
+  .groom-promo .vinfo{padding:10px 2px 0;}
+  .groom-promo .vinfo h4{font-size:13px;}
+  .groom-promo .vinfo p{font-size:11.5px;}
+  @media (max-width:680px){.groom-promo{float:none;width:160px;margin:0 auto 22px;}}
+
+  /* BIG STATEMENT HEADLINE (graphic typographic treatment) */
+  .big-statement{
+    font-size:clamp(32px,5vw,60px);line-height:1.06;text-transform:uppercase;
+    letter-spacing:.005em;margin:0 0 22px;max-width:760px;
+  }
+
+  /* FAQ / GREY EDITORIAL BLOCK */
+  .faq{background:linear-gradient(165deg,#3c3c3c,#141414);color:#fff;}
+  .faq .eyebrow{color:rgba(255,255,255,.6);}
+  .faq-quote{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(19px,2.1vw,25px);line-height:1.5;max-width:800px;margin:0 0 56px;color:#fff;
+  }
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;}
+  .faq-item{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;}
+  .faq-item h4{margin:0 0 10px;font-size:16.5px;font-weight:600;color:#fff;font-family:'Playfair Display',serif;}
+  .faq-item p{margin:0;color:rgba(255,255,255,.68);font-size:14.5px;max-width:520px;}
+
+  /* GALLERY */
+  .gallery{padding:120px 0 0;background:#000;}
+  .gallery-heading{
+    text-align:center;color:#fff;font-family:'Playfair Display',serif;font-weight:500;
+    text-transform:uppercase;font-size:clamp(40px,8vw,96px);letter-spacing:.04em;
+    margin:0 0 56px;
+  }
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  .gallery-grid figure{margin:0;aspect-ratio:3/4;overflow:hidden;position:relative;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gallery-cap{
+    text-align:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);padding:16px 8px 32px;background:#000;
+  }
+
+  /* VIDEO GRID */
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+  .video-grid-2{grid-template-columns:repeat(2,1fr);max-width:640px;}
+  .video-thumb{
+    aspect-ratio:9/13;background:linear-gradient(160deg,#1a1a1a,#3a3a3a);
+    display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  .play-btn{
+    width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .play-btn::after{
+    content:'';border-left:14px solid rgba(255,255,255,.92);border-top:9px solid transparent;
+    border-bottom:9px solid transparent;margin-left:4px;
+  }
+  .video-card .vinfo{padding:16px 2px 0;}
+  .video-card .vinfo h4{margin:0 0 4px;font-size:15px;font-weight:500;font-family:'Playfair Display',serif;}
+  .video-card .vinfo p{margin:0;font-size:13px;color:var(--muted);}
+
+  /* EDITORIAL LIST (diff / ideas) */
+  .ed-list{margin-top:8px;}
+  .ed-row{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;
+    padding:30px 0;border-top:1px solid var(--line);align-items:baseline;
+  }
+  .ed-list .ed-row:last-child{border-bottom:1px solid var(--line);}
+  .ed-num{font-family:'Playfair Display',serif;font-size:20px;color:#C9C9C9;font-weight:400;}
+  .ed-row h4{margin:0 0 6px;font-size:17.5px;font-weight:600;}
+  .ed-row p{margin:0;font-size:15px;color:var(--muted);max-width:620px;}
+  .ed-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
+
+  /* PROCESS TIMELINE */
+  .process{background:var(--black);color:#fff;}
+  .process h2,.process .eyebrow{color:#fff;}
+  .process .eyebrow{color:rgba(255,255,255,.6);}
+  .process .lead{color:rgba(255,255,255,.62);}
+  .timeline{margin-top:48px;display:flex;flex-direction:column;gap:0;}
+  .tl-item{display:flex;gap:26px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14);}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-num{
+    flex:0 0 44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:500;font-family:'Playfair Display',serif;
+  }
+  .tl-text h4{margin:0 0 4px;font-size:17px;color:#fff;font-weight:500;font-family:'Playfair Display',serif;}
+  .tl-text p{margin:0;font-size:14.5px;color:rgba(255,255,255,.6);max-width:640px;}
+
+  /* INTERLUDE BANNER */
+  .interlude{background:var(--black);color:#fff;padding:64px 0;}
+  .interlude .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+    padding:0;
+  }
+  .interlude h3{margin:0 0 10px;font-size:28px;color:#fff;}
+  .interlude p{margin:0;max-width:480px;color:rgba(255,255,255,.62);font-size:15px;}
+  .interlude-compact h3{font-size:20px;margin-bottom:6px;}
+  .interlude-compact p{font-size:14px;}
+
+  /* AWARDS / REVIEWS */
+  .badges-row{
+    display:flex;gap:0;flex-wrap:wrap;margin:36px 0 56px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .badges-row span{
+    padding:18px 26px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--ink);
+  }
+  @media (min-width:861px){
+    .badges-row span{border-right:1px solid var(--line);}
+    .badges-row span:last-child{border-right:none;}
+  }
+  .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .review-card{padding:0;}
+  .review-card .fear{
+    display:block;margin-bottom:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .review-card p{
+    font-family:'Playfair Display',serif;font-size:21px;font-style:italic;font-weight:400;
+    color:var(--ink);margin:0 0 18px;line-height:1.45;
+  }
+  .review-card .who{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+
+  /* GUIDE */
+  .guide{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+  }
+  .guide-text{flex:1.4;min-width:280px;}
+  .guide-text h3{margin:0 0 10px;font-size:26px;font-weight:500;}
+  .guide-text p{margin:0;color:var(--muted);max-width:480px;}
+  .guide-cta{flex:0 0 auto;}
+
+  /* CONTACT */
+  .contact{background:var(--black);color:#fff;text-align:center;}
+  .contact h2{color:#fff;}
+  .contact .eyebrow{color:rgba(255,255,255,.6);}
+  .contact .lead{color:rgba(255,255,255,.6);margin:0 auto 40px;}
+  .contact-buttons{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:34px;align-items:center;}
+  .contact .phone{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:10px;font-weight:400;}
+
+  footer{padding:30px 0;text-align:center;font-size:12.5px;color:var(--muted);background:var(--bg);border-top:1px solid var(--line);}
+
+  @media (max-width:860px){
+    .nav-links,.nav-cta{display:none;}
+    .menu-toggle{display:block;}
+    .nav-links{
+      position:fixed;top:65px;left:0;right:0;height:calc(100vh - 65px);height:calc(100dvh - 65px);
+      flex-direction:column;align-items:stretch;gap:0;
+      background:#fff;padding:4px 28px 28px;overflow-y:auto;
+      border-top:1px solid var(--line);
+    }
+    .nav-links a{width:100%;padding:17px 0;border-bottom:1px solid var(--line);opacity:1;font-size:13.5px;}
+    .nav-cta-mobile{display:block;padding:19px 0 0;font-size:13.5px;}
+    .about .wrap{grid-template-columns:1fr;}
+    .about-photo{max-width:340px;position:static;margin:0 auto;}
+    .hero{height:150vh;}
+    .video-grid{
+      display:flex;grid-template-columns:none;flex-wrap:nowrap;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .video-grid::-webkit-scrollbar{display:none;}
+    .video-card{flex:0 0 78%;scroll-snap-align:start;}
+    .gallery-grid{
+      display:flex;grid-template-columns:none;flex-wrap:nowrap;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .gallery-grid::-webkit-scrollbar{display:none;}
+    .gallery-grid figure{flex:0 0 82%;scroll-snap-align:center;}
+    .ed-cols{grid-template-columns:1fr;}
+    .review-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-badges{display:none;}
+    .interlude .wrap{flex-direction:column;align-items:flex-start;text-align:left;}
+    .guide{flex-direction:column;align-items:flex-start;text-align:left;}
+    .badges-row{flex-direction:column;}
+    .badges-row span{width:100%;border-bottom:1px solid var(--line);}
+    .badges-row span:last-child{border-bottom:none;}
+    .faq-grid{grid-template-columns:1fr;gap:28px;}
+    .statement{height:78vh;}
+    .statement.statement-sm{height:54vh;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .lead{font-size:16.5px;}
+    .video-card{flex:0 0 86%;}
+    section{padding:64px 0;}
+    .hero{height:118vh;}
+    .hero-badges{top:96px;right:20px;}
+    .intro{padding-top:64px;}
+    .statement{height:64vh;min-height:400px;}
+    .statement.statement-sm{height:48vh;min-height:320px;}
+    .statement-text .wrap{padding-bottom:32px;}
+    .gallery-grid figure{flex:0 0 88%;}
+    .gallery{padding-top:64px;}
+    .gallery-heading{font-size:clamp(28px,11vw,40px);padding:0 16px;margin-bottom:28px;}
+    .values-grid{margin-top:28px;padding-top:24px;}
+    .ed-row{grid-template-columns:40px 1fr;gap:18px;}
+    .badges-row span{padding:14px 16px;font-size:11px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Тимофей Арапов</div>
+    <div class="nav-links">
+      <a href="#for-you">Для кого я</a>
+      <a href="#videos">Видео</a>
+      <a href="#about">Кто я</a>
+      <a href="#approach">Подход</a>
+      <a href="#process">Процесс</a>
+      <a href="#awards">Отзывы</a>
+      <a href="#guide">Гайд</a>
+      <a href="#contact" class="nav-cta-mobile">Написать</a>
+    </div>
+    <a href="#contact" class="nav-cta">Написать</a>
+    <button class="menu-toggle" aria-label="Меню">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="bw" src="images/hero-timofey.jpg" alt="Тимофей Арапов — ведущий свадеб и мероприятий">
+  <!-- TODO: подтвердить у Тимофея актуальное количество проведённых мероприятий (на встрече звучала ориентировочная цифра 1000–1200, но она не подтверждена). Ниже оставлено прежнее значение с сайта. -->
+  <div class="hero-badges">
+    <div class="badge-big">
+      <div class="badge-title">Фина-<br>лист<br>NW '23</div>
+      <div class="badge-cap">Wedding Awards<br>Northwest 2023</div>
+    </div>
+    <div class="badge-big">
+      <div class="badge-title">Сере-<br>бро<br>NW '25</div>
+      <div class="badge-cap">Wedding Awards<br>Northwest 2025</div>
+    </div>
+    <div class="badge-stat">800+ мероприятий<br>с 2011 года</div>
+    <div class="badge-stat">400+ отзывов</div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <span class="eyebrow">Ведущий свадеб и мероприятий · Санкт-Петербург</span>
+    <h1>Ведущий, с которым можно быть собой</h1>
+    <p class="lead">Живой юмор, настоящие разговоры и атмосфера, в которой комфортно вам, вашим родителям и друзьям.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Узнать, свободна ли моя дата</a>
+      <a href="#videos" class="btn btn-ghost">Смотреть промо</a>
+    </div>
+  </div>
+</section>
+
+<section id="for-you">
+  <div class="wrap">
+    <span class="eyebrow">01 — Для кого я</span>
+    <h2>Кажется, нам по пути, если для вас важны</h2>
+    <div class="values-grid">
+      <div><h4>Искренность</h4><p>Не играть весь день роль идеальных молодожёнов, а прожить его своими.</p></div>
+      <div><h4>Душевность</h4><p>Чтобы за одним столом можно было и посмеяться до слёз, и вдруг поговорить о действительно важном.</p></div>
+      <div><h4>Интеллект</h4><p>Юмор, который не требует выключать голову.</p></div>
+      <div><h4>Юмор</h4><p>Живой, возникающий здесь и сейчас — без чужих шуток, принесённых с чьей-то другой свадьбы.</p></div>
+      <div><h4>Комфорт</h4><p>Никто не тянет вас к микрофону и не решает за вас, что сегодня будет весело, а что нет.</p></div>
+      <div><h4>Танцевать</h4><p>Музыка и атмосфера, под которую действительно хочется танцевать, а не отсиживаться за столом.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <span class="eyebrow">02 — Видео</span>
+    <h2 class="big-statement">Можно долго рассказывать,<br>какой я ведущий.<br>Лучше покажу.</h2>
+    <p class="lead">Без монтажа под музыку — то, что происходит на настоящих свадьбах.</p>
+    <div class="video-grid video-grid-2">
+      <!-- TODO: NEW SHOWREEL — вставить embed нового шоурила (Instagram/VK) вместо плейсхолдера -->
+      <div class="video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Новый шоурил</h4><p>Главное о том, как я веду, — за несколько минут</p></div></div>
+      <!-- TODO: FULL CEREMONY — вставить embed полной церемонии вместо плейсхолдера -->
+      <div class="video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Церемония целиком</h4><p>Как всё проходит от начала до конца</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <!-- TODO: заменить на актуальный портрет Тимофея с новой фотосессии -->
+      <img class="bw" src="images/about-timofey.jpg" alt="Тимофей Арапов — портрет" loading="lazy">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">03 — Кто я</span>
+      <h2>Обычный ведущий, который пару лет назад сам стал женихом</h2>
+      <!-- TODO: подтвердить точное количество проведённых мероприятий (обсуждалось ориентировочно 1000–1200, но цифра не подтверждена) -->
+      <p class="lead">За годы работы — сотни мероприятий, несколько выступлений «у первых лиц» (сам в шоке), финал Wedding Awards Northwest в 2023-м и серебро в 2025-м.</p>
+      <!-- TODO: GROOM PROMO — вставить embed промо «Тимофей — жених» вместо плейсхолдера -->
+      <div class="groom-promo video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей — жених</h4><p>Каково это — оказаться по другую сторону свадьбы</p></div></div>
+      <p>Пару лет назад я сам стал женихом — и решил пройти этот путь до конца, а не наблюдать со стороны. Оказалось, выбрать оттенок столовых приборов — задача не проще, чем вести вечер на 150 человек. А вопрос «зачем звать тётю Катю» волнует не только гостей.</p>
+      <p>Опыт «с другой стороны» изменил мою программу: называть каждого гостя по имени, слушать и рассказывать истории, обязательно говорить «спасибо» родителям — и быть на празднике другом, а не функцией с микрофоном.</p>
+      <p>Перед каждым праздником вникаю в историю пары: как познакомились, что было важного на пути друг к другу, кого обязательно нужно упомянуть. Узнаю, как зовут маму и лучшую подругу, и те мелочи, которые знают только близкие — и аккуратно вплетаю это в программу, а не в дежурные фразы. Поэтому гости потом говорят: «интеллигентный ведущий» — то есть внимательнее, а не громче.</p>
+      <div class="pull-quote">«Как человек я тоже могу переживать. Но как ведущий уже: вёл свадьбу без жениха, пять раз за вечер отключался свет, двадцать минут держал зал перед выходом артиста.»</div>
+      <p>Опыт с 2011 года — это не про отсутствие страха, а про то, что выход есть из любой ситуации. Я уже сто раз в этом убеждался.</p>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <img class="bw" src="images/action-timofey.jpg" alt="Тимофей Арапов на свадьбе" loading="lazy">
+  <div class="statement-text">
+    <div class="wrap">
+      <h2>Хороший ведущий — это не громче, а добрее.</h2>
+      <span class="cap">Тимофей Арапов — ведущий свадеб и мероприятий</span>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-heading">Фотогалерея</div>
+  <!-- TODO: заменить галерею на актуальные фотографии Тимофея и реальные кадры мероприятий -->
+  <div class="gallery-grid">
+    <figure><img src="images/gallery-01.jpg" alt="Подружки невесты поют с микрофоном на свадьбе" loading="lazy"></figure>
+    <figure><img src="images/gallery-02.jpg" alt="Гости радуются за столом на свадьбе" loading="lazy"></figure>
+    <figure><img src="images/gallery-03.jpg" alt="Гостья смеётся в синем свете на сцене" loading="lazy"></figure>
+    <figure><img src="images/gallery-04.jpg" alt="Гости танцуют и поднимают руки в банкетном зале" loading="lazy"></figure>
+    <figure><img src="images/gallery-05.jpg" alt="Жених и невеста под хрустальной люстрой" loading="lazy"></figure>
+    <figure><img src="images/gallery-06.jpg" alt="Жених и невеста под цветочной аркой на церемонии" loading="lazy"></figure>
+    <figure><img src="images/gallery-07.jpg" alt="Жених и невеста смотрят на салют" loading="lazy"></figure>
+    <figure><img src="images/gallery-08.jpg" alt="Гости танцуют в свете прожекторов" loading="lazy"></figure>
+    <figure><img src="images/gallery-09.jpg" alt="Жених и невеста едят свадебный торт" loading="lazy"></figure>
+  </div>
+  <div class="gallery-cap">Живые лица. Настоящие моменты.</div>
+</section>
+
+<section class="statement">
+  <img class="bw" src="images/scatter-fullbg.jpg" alt="Тимофей Арапов отходит в сторону, уступая внимание гостям" loading="lazy">
+  <div class="statement-text">
+    <div class="wrap">
+      <h2>Ведущий — не центр свадьбы. Он рядом с вами.</h2>
+      <p>Иногда мы так торопимся, что пропускаем важные моменты. Сегодня — точно не пропустим.</p>
+      <span class="cap">Тимофей Арапов — ведущий свадеб и мероприятий</span>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="inset-photo">
+      <img class="bw" src="images/scatter-window.jpg" alt="Тимофей Арапов — портрет" loading="lazy">
+      <span>Тимофей Арапов</span>
+    </div>
+    <span class="eyebrow">04 — Подход</span>
+    <h2>Я начинал в 2011-м с классической школы — и постепенно от неё отошёл</h2>
+    <p class="lead">Профессиональную базу и умение держать зал я оставил себе. А вот бесконечную череду конкурсов — почти нет.</p>
+    <div class="ed-list ed-cols">
+      <div>
+        <div class="ed-row"><div class="ed-num">01</div><div><h4>Личный подход</h4><p>Вникаю в историю пары: как познакомились, кого обязательно отметить, как зовут маму и лучшую подругу — и использую эти детали в программе, а не общие фразы.</p></div></div>
+        <div class="ed-row"><div class="ed-num">02</div><div><h4>Живой разговор, а не сценарий</h4><p>Говорю с гостями, а не просто вызываю их к микрофону по пунктам программы. Лучшие моменты вечера часто начинаются с чьей-то простой истории.</p></div></div>
+      </div>
+      <div>
+        <div class="ed-row"><div class="ed-num">03</div><div><h4>Участвует, кто сам хочет</h4><p>Никого не тяну к микрофону силой. Каждый сам решает, включаться или наблюдать.</p></div></div>
+        <div class="ed-row"><div class="ed-num">04</div><div><h4>Вдохновляюсь не сценариями</h4><p>Хорошим кино, разговорами по душам, семьёй, свободой. Мне интереснее придумать момент под вашу семью, чем принести ещё один «авторский конкурс».</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="wrap">
+    <span class="eyebrow">05 — Ценности</span>
+    <h2>Если мы совпадаем по ценностям, нам будет легко сделать вашу свадьбу вместе</h2>
+    <div class="values-grid">
+      <div><h4>Семья</h4><p>Место, куда хочется возвращаться в любой день.</p></div>
+      <div><h4>Свобода</h4><p>Не люблю, когда всё расписано по минутам — ни в жизни, ни на свадьбе.</p></div>
+      <div><h4>Хорошие фильмы</h4><p>Особенно старое итальянское кино. Оттуда чувство юмора и лёгкость, а не из шоу.</p></div>
+      <div><h4>Разговоры по душам</h4><p>Один настоящий разговор ценнее десяти вежливых.</p></div>
+      <div><h4>Путешествия</h4><p>Автодом, дорога, новые города.</p></div>
+      <div><h4>Море каждый год</h4><p>Традиция каждый год ненадолго уезжать к морю.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <span class="eyebrow">06 — Процесс</span>
+    <h2>Как проходит работа со мной</h2>
+    <p class="lead">От первого разговора до дня свадьбы — вот что происходит на каждом шаге.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-num">1</div><div class="tl-text"><h4>Встреча или созвон, около часа</h4><p>До подписания договора открыто рассказываю, как строится программа, показываю примеры. Вы делитесь пожеланиями — и вместе понимаем, подходим ли друг другу.</p></div></div>
+      <div class="tl-item"><div class="tl-num">2</div><div class="tl-text"><h4>Бронирование даты</h4><p>Договор и 15% от гонорара. Дата закрепляется только за вами. Остаток — в день мероприятия.</p></div></div>
+      <div class="tl-item"><div class="tl-num">3</div><div class="tl-text"><h4>Собираем программу вокруг вас</h4><p>Истории, люди, музыка, идеи и то, что важно именно вам.</p></div></div>
+      <div class="tl-item"><div class="tl-num">4</div><div class="tl-text"><h4>Остаюсь на связи</h4><p>Отвечаю на организационные вопросы с момента брони и до свадьбы. Да, даже если стало тревожно в воскресенье вечером.</p></div></div>
+      <div class="tl-item"><div class="tl-num">5</div><div class="tl-text"><h4>Финальная встреча</h4><p>За неделю до свадьбы сверяем все детали и правим программу.</p></div></div>
+      <div class="tl-item"><div class="tl-num">6</div><div class="tl-text"><h4>День Х</h4><p>Чёткий тайминг. Вы всегда знаете, что будет дальше.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="wrap">
+    <span class="eyebrow">07 — Развлечения</span>
+    <h2>Развлечения, которые не выглядят как обязаловка</h2>
+    <div class="ed-list ed-cols">
+      <div>
+        <div class="ed-row"><div class="ed-num">—</div><div><h4>Традиции</h4><p>Обсуждаем, что для вас лично важно сохранить — без шаблона «как у всех».</p></div></div>
+        <div class="ed-row"><div class="ed-num">—</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40 минут — танцы и отдых, музыка подбирается под вкус пары.</p></div></div>
+      </div>
+      <div>
+        <div class="ed-row"><div class="ed-num">—</div><div><h4>Разные поколения за одним столом</h4><p>Ваши друзья и бабушка могут сидеть рядом, и никому не должно быть неловко — не через отдельные «конкурсы для бабушек», а через разговор и внимание к каждому.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="interlude interlude-compact" id="corporate">
+  <div class="wrap">
+    <div>
+      <h3>Провожу и другие мероприятия</h3>
+      <p>Корпоративы и юбилеи — с тем же подходом.</p>
+    </div>
+    <!-- TODO: заменить ссылку на отдельный лендинг для корпоративных мероприятий, когда он будет готов -->
+    <a href="#" class="btn btn-ghost-dark">Подробнее</a>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Вопросы, которые чаще всего задают</span>
+    <div class="faq-quote">«Хочется, чтобы было весело — но чтобы свадьба всё равно оставалась про вас, а не про ведущего.»</div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>А если гости не захотят участвовать?</h4>
+        <p>Никого не тяну к микрофону силой. Чувствую настроение зала и предлагаю участие там, где оно возникает само.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Не станет ли ведущий главным героем нашей свадьбы?</h4>
+        <p>Нет. Я не в центре — я рядом. Главные здесь вы и ваши люди, а моя работа — помочь этому дню случиться.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Что если что-то пойдёт не по плану?</h4>
+        <p>За годы бывало разное: свадьба без жениха, отключение света посреди вечера, двадцать минут держал зал перед выходом артиста. Справлялись — справимся и в этот раз.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Получится ли объединить очень разных гостей и поколения?</h4>
+        <p>Да. Ваши друзья и бабушка вполне могут оказаться за одним разговором — дело не в конкурсах, а в том, чтобы поговорить с каждым.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <span class="eyebrow">08 — Награды и отзывы</span>
+    <h2>Опыт, который можно проверить</h2>
+    <div class="badges-row">
+      <span>Финалист Wedding Awards NW 2023</span>
+      <span>Серебро Wedding Awards NW 2025</span>
+      <span>400+ отзывов</span>
+      <!-- TODO: Тимофей на встрече отметил, что ещё думает над формулировкой этого пункта — уточнить финальный текст перед публикацией -->
+      <span>Вёл мероприятия у первых лиц</span>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <span class="fear">Переживали, что вместо ведущего получат тамаду</span>
+        <p>«У нас будет ведущий, но у нас не будет тамады» — эту разницу родители пары поняли только после самого праздника.</p>
+        <div class="who">Наталья Елистратова — свадьба 17.10.2025</div>
+      </div>
+      <div class="review-card">
+        <span class="fear">Боялись, что с новым человеком будет неловко</span>
+        <p>Гости, которых спросили о свадьбе уже спустя пару месяцев, независимо друг от друга говорили: казалось, что Тимофей знал их целую вечность — настолько легко он переходил от шуток к тёплым моментам.</p>
+        <div class="who">Дарина Темнова</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="wrap">
+    <div class="guide">
+      <div class="guide-text">
+        <span class="eyebrow">Бесплатно</span>
+        <h3>Гайд: как выбрать ведущего на свадьбу</h3>
+        <p>На что обратить внимание и какие вопросы задать на первой встрече, чтобы потом не жалеть о выборе.</p>
+      </div>
+      <div class="guide-cta">
+        <!-- TODO: заменить href на актуальную ссылку на PDF -->
+        <a href="#" class="btn btn-primary">Скачать гайд</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Контакты</span>
+    <h2>Давайте вместе создавать историю</h2>
+    <p class="lead">Я рядом, чтобы помочь вам сделать этот день вашим. Расскажите о своём празднике — отвечу и подскажу, как лучше начать подготовку.</p>
+    <div class="phone">+7 952 287-53-75</div>
+    <div class="contact-buttons">
+      <!-- TODO: заменить href на реальные ссылки на соцсети/мессенджеры -->
+      <a href="#" class="btn btn-ghost-dark">Написать в Instagram</a>
+      <a href="#" class="text-link">VK</a>
+      <a href="#" class="text-link">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Тимофей Арапов — ведущий свадеб и мероприятий, Санкт-Петербург
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  function closeMenu() {
+    if (!navLinks) return;
+    navLinks.style.display = 'none';
+    if (menuToggle) menuToggle.textContent = '☰';
+  }
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navLinks.style.display === 'flex';
+    navLinks.style.display = isOpen ? 'none' : 'flex';
+    menuToggle.textContent = isOpen ? '☰' : '✕';
+  });
+  navLinks?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMenu();
+  });
+
+  // custom cursor — comet-tail trail that stretches with movement and
+  // inverts colour (mix-blend-mode:difference) against the photo/background
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'cursor-trail';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+
+    let cssW = window.innerWidth, cssH = window.innerHeight;
+    function resize() {
+      cssW = window.innerWidth;
+      cssH = window.innerHeight;
+      canvas.width = cssW * dpr;
+      canvas.height = cssH * dpr;
+      canvas.style.width = cssW + 'px';
+      canvas.style.height = cssH + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      trail.length = 0;
+    }
+    let mx = -100, my = -100, has = false, hover = false;
+    const trail = [];
+    const TRAIL_LEN = 12;
+    resize();
+    window.addEventListener('resize', resize);
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!has) { has = true; canvas.style.opacity = '1'; }
+    });
+    document.querySelectorAll('a, button, .btn').forEach((el) => {
+      el.addEventListener('mouseenter', () => { hover = true; });
+      el.addEventListener('mouseleave', () => { hover = false; });
+    });
+
+    function render() {
+      trail.push({ x: mx, y: my });
+      if (trail.length > TRAIL_LEN) trail.shift();
+      ctx.clearRect(0, 0, cssW, cssH);
+      const n = trail.length;
+      trail.forEach((p, i) => {
+        const t = (i + 1) / n;
+        const r = (hover ? 6 : 2.5) + t * (hover ? 18 : 9);
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255,255,255,${0.12 + t * 0.88})`;
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(render);
+    }
+    render();
+  }
+</script>
+
+</body>
+</html>
