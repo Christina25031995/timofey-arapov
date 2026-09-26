@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тимофей Арапов — ведущий свадеб и мероприятий, Санкт-Петербург</title>
-<meta name="description" content="Тимофей Арапов — ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор, настоящий контакт с гостями и атмосфера, в которой можно быть собой.">
+<title>Тимофей Арапов, ведущий свадеб и мероприятий, Санкт-Петербург</title>
+<meta name="description" content="Тимофей Арапов, ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор, настоящий контакт с гостями и атмосфера, в которой можно быть собой.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -21,6 +21,7 @@
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
+    .reel-play svg,.reel-tag i{animation:none !important;}
   }
   body{
     margin:0;
@@ -251,7 +252,6 @@
   .interlude{background:var(--black);color:#fff;padding:64px 0;}
   .interlude .wrap{
     display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
-    padding:0;
   }
   .interlude h3{margin:0 0 10px;font-size:28px;color:#fff;}
   .interlude p{margin:0;max-width:480px;color:rgba(255,255,255,.62);font-size:15px;}
@@ -361,6 +361,84 @@
     .ed-row{grid-template-columns:40px 1fr;gap:18px;}
     .badges-row span{padding:14px 16px;font-size:11px;}
   }
+
+  /* TYPOGRAPHY: forced line counts on desktop */
+  .one-line{max-width:none !important;}
+  .intro h1.one-line,.statement-text h2.one-line{white-space:nowrap;}
+  .big-statement{max-width:none;font-size:clamp(24px,calc((100vw - 72px) / 27.5),42px);}
+  .about-title{font-size:clamp(28px,2.9vw,36px);}
+  .approach-title em{font-style:italic;font-weight:400;color:var(--muted);}
+  @media (max-width:860px){
+    .intro h1.one-line,.statement-text h2.one-line{white-space:normal;}
+    .br-desk{display:none;}
+    .big-statement{font-size:clamp(30px,8.4vw,44px);}
+  }
+  .contact-alt{display:flex;gap:28px;align-items:center;justify-content:center;}
+  .nowrap{white-space:nowrap;}
+  @media (max-width:560px){
+    .contact-buttons{flex-direction:column;align-items:center;gap:26px;}
+  }
+
+  /* VIDEO STAGE (showreel + ceremony) */
+  .reel{background:var(--black);color:#fff;overflow:hidden;padding-bottom:140px;}
+  .reel .eyebrow{color:rgba(255,255,255,.55);}
+  .reel h2{color:#fff;}
+  .reel .lead{color:rgba(255,255,255,.6);}
+  .reel-stage{position:relative;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:84px;}
+  .reel-word{
+    position:absolute;left:50%;top:74%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;line-height:1;white-space:nowrap;
+    font-size:clamp(96px,17vw,260px);letter-spacing:-.02em;
+    color:#fff;mix-blend-mode:difference;
+  }
+  .reel-card{position:relative;z-index:1;cursor:pointer;}
+  .reel-main{grid-column:1 / span 6;}
+  .reel-col{grid-column:8 / span 4;padding-top:40px;}
+  .reel-note{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.9;
+    color:rgba(255,255,255,.55);padding-left:18px;border-left:1px solid rgba(255,255,255,.3);margin-bottom:120px;
+  }
+  .reel-media{position:relative;overflow:hidden;aspect-ratio:4/5;background:#1a1a1a;}
+  .reel-side .reel-media{aspect-ratio:3/4;}
+  .reel-media img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(1) contrast(1.06) brightness(.72);transform:scale(1.001);
+    transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .9s ease;
+  }
+  .reel-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 65%,rgba(0,0,0,.55));pointer-events:none;}
+  .reel-card:hover .reel-media img{transform:scale(1.06);filter:grayscale(0) contrast(1.02) brightness(.85);}
+  .reel-num{position:absolute;top:20px;left:22px;z-index:2;font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.12em;}
+  .reel-tag{position:absolute;top:22px;right:22px;z-index:2;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+  .reel-tag i{width:7px;height:7px;border-radius:50%;background:#E5383B;animation:reel-blink 1.6s ease-in-out infinite;}
+  .reel-play{position:absolute;left:50%;top:50%;z-index:2;width:136px;height:136px;transform:translate(-50%,-50%);transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .reel-play svg{width:100%;height:100%;animation:reel-spin 16s linear infinite;}
+  .reel-play text{fill:#fff;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;text-transform:uppercase;}
+  .reel-play::before{content:'';position:absolute;inset:34px;border-radius:50%;border:1px solid rgba(255,255,255,.75);background:rgba(0,0,0,.18);backdrop-filter:blur(4px);transition:background .4s,border-color .4s;}
+  .reel-play::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;transition:border-left-color .4s;}
+  .reel-card:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);}
+  .reel-card:hover .reel-play::before{background:#fff;border-color:#fff;}
+  .reel-card:hover .reel-play::after{border-left-color:#000;}
+  .reel-info{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-top:20px;}
+  .reel-info h4{margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:26px;color:#fff;white-space:nowrap;}
+  .reel-side .reel-info{flex-direction:column;gap:6px;}
+  .reel-side .reel-info h4{font-size:21px;}
+  .reel-info p{margin:0;font-size:13.5px;color:rgba(255,255,255,.55);text-align:right;}
+  .reel-side .reel-info p{text-align:left;}
+  @keyframes reel-spin{to{transform:rotate(360deg);}}
+  @keyframes reel-blink{50%{opacity:.25;}}
+  @media (max-width:860px){
+    .reel{padding-bottom:80px;}
+    .reel-stage{display:block;margin-top:52px;}
+    .reel-word{position:relative;display:block;left:auto;top:auto;transform:none;text-align:center;font-size:23vw;margin:0 0 -6.5vw;}
+    .reel-col{padding-top:0;}
+    .reel-note{margin:36px 0 28px;}
+    .reel-side{width:82%;margin-left:auto;}
+    .reel-play{width:112px;height:112px;}
+    .reel-play::before{inset:28px;}
+    .reel-info{flex-direction:column;gap:6px;}
+    .reel-info h4{font-size:22px;}
+    .reel-info p{text-align:left;}
+  }
 </style>
 </head>
 <body>
@@ -369,9 +447,9 @@
   <nav>
     <div class="logo">Тимофей Арапов</div>
     <div class="nav-links">
-      <a href="#for-you">Для кого я</a>
+      <a href="#for-you">Для&nbsp;кого&nbsp;я</a>
       <a href="#videos">Видео</a>
-      <a href="#about">Кто я</a>
+      <a href="#about">Кто&nbsp;я</a>
       <a href="#approach">Подход</a>
       <a href="#process">Процесс</a>
       <a href="#awards">Отзывы</a>
@@ -384,29 +462,29 @@
 </header>
 
 <section class="hero">
-  <img class="bw" src="images/hero-timofey.jpg" alt="Тимофей Арапов — ведущий свадеб и мероприятий">
+  <img class="bw" src="images/hero-timofey.jpg" alt="Тимофей Арапов, ведущий свадеб и мероприятий">
   <!-- TODO: подтвердить у Тимофея актуальное количество проведённых мероприятий (на встрече звучала ориентировочная цифра 1000–1200, но она не подтверждена). Ниже оставлено прежнее значение с сайта. -->
   <div class="hero-badges">
     <div class="badge-big">
-      <div class="badge-title">Фина-<br>лист<br>NW '23</div>
+      <div class="badge-title">Фина-<br>лист<br>NW&nbsp;'23</div>
       <div class="badge-cap">Wedding Awards<br>Northwest 2023</div>
     </div>
     <div class="badge-big">
-      <div class="badge-title">Сере-<br>бро<br>NW '25</div>
+      <div class="badge-title">Сере-<br>бро<br>NW&nbsp;'25</div>
       <div class="badge-cap">Wedding Awards<br>Northwest 2025</div>
     </div>
-    <div class="badge-stat">800+ мероприятий<br>с 2011 года</div>
-    <div class="badge-stat">400+ отзывов</div>
+    <div class="badge-stat">800+&nbsp;мероприятий<br>с&nbsp;2011&nbsp;года</div>
+    <div class="badge-stat">400+&nbsp;отзывов</div>
   </div>
 </section>
 
 <section class="intro">
   <div class="wrap">
-    <span class="eyebrow">Ведущий свадеб и мероприятий · Санкт-Петербург</span>
-    <h1>Ведущий, с которым можно быть собой</h1>
-    <p class="lead">Живой юмор, настоящие разговоры и атмосфера, в которой комфортно вам, вашим родителям и друзьям.</p>
+    <span class="eyebrow">Ведущий свадеб и&nbsp;мероприятий · Санкт-Петербург</span>
+    <h1 class="one-line">Ведущий, с&nbsp;которым можно быть собой</h1>
+    <p class="lead one-line">Живой юмор, настоящие разговоры и&nbsp;атмосфера, в&nbsp;которой комфортно вам, вашим родителям и&nbsp;друзьям.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Узнать, свободна ли моя дата</a>
+      <a href="#contact" class="btn btn-primary">Узнать, свободна&nbsp;ли&nbsp;моя дата</a>
       <a href="#videos" class="btn btn-ghost">Смотреть промо</a>
     </div>
   </div>
@@ -414,29 +492,48 @@
 
 <section id="for-you">
   <div class="wrap">
-    <span class="eyebrow">01 — Для кого я</span>
-    <h2>Кажется, нам по пути, если для вас важны</h2>
+    <span class="eyebrow">01 · Для&nbsp;кого&nbsp;я</span>
+    <h2>Кажется, нам по&nbsp;пути, если для&nbsp;вас&nbsp;важны</h2>
     <div class="values-grid">
-      <div><h4>Искренность</h4><p>Не играть весь день роль идеальных молодожёнов, а прожить его своими.</p></div>
-      <div><h4>Душевность</h4><p>Чтобы за одним столом можно было и посмеяться до слёз, и вдруг поговорить о действительно важном.</p></div>
-      <div><h4>Интеллект</h4><p>Юмор, который не требует выключать голову.</p></div>
-      <div><h4>Юмор</h4><p>Живой, возникающий здесь и сейчас — без чужих шуток, принесённых с чьей-то другой свадьбы.</p></div>
-      <div><h4>Комфорт</h4><p>Никто не тянет вас к микрофону и не решает за вас, что сегодня будет весело, а что нет.</p></div>
-      <div><h4>Танцевать</h4><p>Музыка и атмосфера, под которую действительно хочется танцевать, а не отсиживаться за столом.</p></div>
+      <div><h4>Искренность</h4><p>Не&nbsp;играть весь день роль идеальных молодожёнов, а&nbsp;прожить его&nbsp;своими.</p></div>
+      <div><h4>Душевность</h4><p>Чтобы за&nbsp;одним столом можно было и&nbsp;посмеяться до&nbsp;слёз, и&nbsp;вдруг поговорить о&nbsp;действительно важном.</p></div>
+      <div><h4>Интеллект</h4><p>Юмор, который не&nbsp;требует выключать голову.</p></div>
+      <div><h4>Юмор</h4><p>Живой, возникающий здесь и&nbsp;сейчас, без&nbsp;чужих шуток, принесённых с&nbsp;чьей-то другой свадьбы.</p></div>
+      <div><h4>Комфорт</h4><p>Никто не&nbsp;тянет вас&nbsp;к&nbsp;микрофону и&nbsp;не&nbsp;решает за&nbsp;вас, что&nbsp;сегодня будет весело, а&nbsp;что&nbsp;нет.</p></div>
+      <div><h4>Танцы</h4><p>Музыка и&nbsp;атмосфера, под&nbsp;которую действительно хочется танцевать, а&nbsp;не&nbsp;отсиживаться за&nbsp;столом.</p></div>
     </div>
   </div>
 </section>
 
-<section id="videos">
+<section id="videos" class="reel">
   <div class="wrap">
-    <span class="eyebrow">02 — Видео</span>
-    <h2 class="big-statement">Можно долго рассказывать,<br>какой я ведущий.<br>Лучше покажу.</h2>
-    <p class="lead">Без монтажа под музыку — то, что происходит на настоящих свадьбах.</p>
-    <div class="video-grid video-grid-2">
-      <!-- TODO: NEW SHOWREEL — вставить embed нового шоурила (Instagram/VK) вместо плейсхолдера -->
-      <div class="video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Новый шоурил</h4><p>Главное о том, как я веду, — за несколько минут</p></div></div>
-      <!-- TODO: FULL CEREMONY — вставить embed полной церемонии вместо плейсхолдера -->
-      <div class="video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Церемония целиком</h4><p>Как всё проходит от начала до конца</p></div></div>
+    <span class="eyebrow">02 · Видео</span>
+    <h2 class="big-statement">Можно долго рассказывать, какой я&nbsp;ведущий.<br>Лучше покажу.</h2>
+    <p class="lead one-line">Без&nbsp;монтажа под&nbsp;музыку, то, что&nbsp;происходит на&nbsp;настоящих свадьбах.</p>
+    <div class="reel-stage">
+      <div class="reel-word" aria-hidden="true">Showreel</div>
+      <!-- TODO: NEW SHOWREEL — вставить embed нового шоурила (Instagram/VK) вместо постера -->
+      <div class="reel-card reel-main">
+        <div class="reel-media">
+          <img src="images/gallery-04.jpg" alt="Гости танцуют на свадьбе, которую ведёт Тимофей Арапов" loading="lazy">
+          <span class="reel-num">01</span>
+          <span class="reel-tag"><i></i>Rec</span>
+          <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring1" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring1" textLength="292">Смотреть · Шоурил · Смотреть · Шоурил ·</textPath></text></svg></span>
+        </div>
+        <div class="reel-info"><h4>Новый шоурил</h4><p>Главное о&nbsp;том, как&nbsp;я&nbsp;веду, за&nbsp;несколько минут</p></div>
+      </div>
+      <div class="reel-col">
+        <div class="reel-note">Настоящие свадьбы<br>без&nbsp;монтажа<br>и&nbsp;постановки</div>
+        <!-- TODO: FULL CEREMONY — вставить embed полной церемонии вместо постера -->
+        <div class="reel-card reel-side">
+          <div class="reel-media">
+            <img src="images/gallery-06.jpg" alt="Церемония под цветочной аркой" loading="lazy">
+            <span class="reel-num">02</span>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring2" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring2" textLength="292">Смотреть · Церемония · Смотреть · Церемония ·</textPath></text></svg></span>
+          </div>
+          <div class="reel-info"><h4>Церемония целиком</h4><p>Как&nbsp;всё&nbsp;проходит от&nbsp;начала до&nbsp;конца</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -445,20 +542,20 @@
   <div class="wrap">
     <div class="about-photo">
       <!-- TODO: заменить на актуальный портрет Тимофея с новой фотосессии -->
-      <img class="bw" src="images/about-timofey.jpg" alt="Тимофей Арапов — портрет" loading="lazy">
+      <img class="bw" src="images/about-timofey.jpg" alt="Тимофей Арапов, портрет" loading="lazy">
     </div>
     <div class="about-text">
-      <span class="eyebrow">03 — Кто я</span>
-      <h2>Обычный ведущий, который пару лет назад сам стал женихом</h2>
+      <span class="eyebrow">03 · Кто&nbsp;я</span>
+      <h2 class="about-title">Обычный ведущий, который<br class="br-desk"> пару лет назад сам стал женихом</h2>
       <!-- TODO: подтвердить точное количество проведённых мероприятий (обсуждалось ориентировочно 1000–1200, но цифра не подтверждена) -->
-      <p class="lead">За годы работы — сотни мероприятий, несколько выступлений «у первых лиц» (сам в шоке), финал Wedding Awards Northwest в 2023-м и серебро в 2025-м.</p>
+      <p class="lead">За&nbsp;годы работы, сотни мероприятий, несколько выступлений «у&nbsp;первых лиц» (сам в&nbsp;шоке), финал Wedding Awards Northwest в&nbsp;2023-м и&nbsp;серебро в&nbsp;2025-м.</p>
       <!-- TODO: GROOM PROMO — вставить embed промо «Тимофей — жених» вместо плейсхолдера -->
-      <div class="groom-promo video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей — жених</h4><p>Каково это — оказаться по другую сторону свадьбы</p></div></div>
-      <p>Пару лет назад я сам стал женихом — и решил пройти этот путь до конца, а не наблюдать со стороны. Оказалось, выбрать оттенок столовых приборов — задача не проще, чем вести вечер на 150 человек. А вопрос «зачем звать тётю Катю» волнует не только гостей.</p>
-      <p>Опыт «с другой стороны» изменил мою программу: называть каждого гостя по имени, слушать и рассказывать истории, обязательно говорить «спасибо» родителям — и быть на празднике другом, а не функцией с микрофоном.</p>
-      <p>Перед каждым праздником вникаю в историю пары: как познакомились, что было важного на пути друг к другу, кого обязательно нужно упомянуть. Узнаю, как зовут маму и лучшую подругу, и те мелочи, которые знают только близкие — и аккуратно вплетаю это в программу, а не в дежурные фразы. Поэтому гости потом говорят: «интеллигентный ведущий» — то есть внимательнее, а не громче.</p>
-      <div class="pull-quote">«Как человек я тоже могу переживать. Но как ведущий уже: вёл свадьбу без жениха, пять раз за вечер отключался свет, двадцать минут держал зал перед выходом артиста.»</div>
-      <p>Опыт с 2011 года — это не про отсутствие страха, а про то, что выход есть из любой ситуации. Я уже сто раз в этом убеждался.</p>
+      <div class="groom-promo video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей, жених</h4><p>Каково это, оказаться по&nbsp;другую сторону свадьбы</p></div></div>
+      <p>Пару лет назад я&nbsp;сам стал женихом, и&nbsp;решил пройти этот путь до&nbsp;конца, а&nbsp;не&nbsp;наблюдать со&nbsp;стороны. Оказалось, выбрать оттенок столовых приборов, задача не&nbsp;проще, чем&nbsp;вести вечер на&nbsp;150&nbsp;человек. А&nbsp;вопрос «зачем звать тётю Катю» волнует не&nbsp;только гостей.</p>
+      <p>Опыт «с&nbsp;другой стороны» изменил мою программу: называть каждого гостя по&nbsp;имени, слушать и&nbsp;рассказывать истории, обязательно говорить «спасибо» родителям, и&nbsp;быть на&nbsp;празднике другом, а&nbsp;не&nbsp;функцией с&nbsp;микрофоном.</p>
+      <p>Перед каждым праздником вникаю в&nbsp;историю пары: как&nbsp;познакомились, что&nbsp;было важного на&nbsp;пути друг к&nbsp;другу, кого обязательно нужно упомянуть. Узнаю, как&nbsp;зовут маму и&nbsp;лучшую подругу, и&nbsp;те&nbsp;мелочи, которые знают только близкие, и&nbsp;аккуратно вплетаю это&nbsp;в&nbsp;программу, а&nbsp;не&nbsp;в&nbsp;дежурные фразы. Поэтому гости потом говорят: «интеллигентный ведущий», то&nbsp;есть внимательнее, а&nbsp;не&nbsp;громче.</p>
+      <div class="pull-quote">«Как&nbsp;человек я&nbsp;тоже могу переживать. Но&nbsp;как&nbsp;ведущий уже: вёл свадьбу без&nbsp;жениха, пять раз за&nbsp;вечер отключался свет, двадцать минут держал зал перед выходом артиста.»</div>
+      <p>Опыт с&nbsp;2011&nbsp;года, это&nbsp;не&nbsp;про&nbsp;отсутствие страха, а&nbsp;про&nbsp;то, что&nbsp;выход есть из&nbsp;любой ситуации. Я&nbsp;уже&nbsp;сто раз в&nbsp;этом убеждался.</p>
     </div>
   </div>
 </section>
@@ -467,8 +564,8 @@
   <img class="bw" src="images/action-timofey.jpg" alt="Тимофей Арапов на свадьбе" loading="lazy">
   <div class="statement-text">
     <div class="wrap">
-      <h2>Хороший ведущий — это не громче, а добрее.</h2>
-      <span class="cap">Тимофей Арапов — ведущий свадеб и мероприятий</span>
+      <h2 class="one-line">Хороший ведущий, это&nbsp;не&nbsp;громче, а&nbsp;добрее.</h2>
+      <span class="cap">Тимофей Арапов, ведущий свадеб и&nbsp;мероприятий</span>
     </div>
   </div>
 </section>
@@ -494,9 +591,9 @@
   <img class="bw" src="images/scatter-fullbg.jpg" alt="Тимофей Арапов отходит в сторону, уступая внимание гостям" loading="lazy">
   <div class="statement-text">
     <div class="wrap">
-      <h2>Ведущий — не центр свадьбы. Он рядом с вами.</h2>
-      <p>Иногда мы так торопимся, что пропускаем важные моменты. Сегодня — точно не пропустим.</p>
-      <span class="cap">Тимофей Арапов — ведущий свадеб и мероприятий</span>
+      <h2>Ведущий, не&nbsp;центр свадьбы. Он&nbsp;рядом с&nbsp;вами.</h2>
+      <p>Иногда мы&nbsp;так&nbsp;торопимся, что&nbsp;пропускаем важные моменты. Сегодня, точно не&nbsp;пропустим.</p>
+      <span class="cap">Тимофей Арапов, ведущий свадеб и&nbsp;мероприятий</span>
     </div>
   </div>
 </section>
@@ -504,20 +601,20 @@
 <section id="approach">
   <div class="wrap">
     <div class="inset-photo">
-      <img class="bw" src="images/scatter-window.jpg" alt="Тимофей Арапов — портрет" loading="lazy">
+      <img class="bw" src="images/scatter-window.jpg" alt="Тимофей Арапов, портрет" loading="lazy">
       <span>Тимофей Арапов</span>
     </div>
-    <span class="eyebrow">04 — Подход</span>
-    <h2>Я начинал в 2011-м с классической школы — и постепенно от неё отошёл</h2>
-    <p class="lead">Профессиональную базу и умение держать зал я оставил себе. А вот бесконечную череду конкурсов — почти нет.</p>
+    <span class="eyebrow">04 · Подход</span>
+    <h2 class="approach-title">Я&nbsp;начинал в&nbsp;2011-м с&nbsp;классической школы<br><em>и&nbsp;постепенно от&nbsp;неё отошёл</em></h2>
+    <p class="lead">Профессиональную базу и&nbsp;умение держать зал я&nbsp;оставил себе. А&nbsp;вот бесконечную череду конкурсов, почти&nbsp;нет.</p>
     <div class="ed-list ed-cols">
       <div>
-        <div class="ed-row"><div class="ed-num">01</div><div><h4>Личный подход</h4><p>Вникаю в историю пары: как познакомились, кого обязательно отметить, как зовут маму и лучшую подругу — и использую эти детали в программе, а не общие фразы.</p></div></div>
-        <div class="ed-row"><div class="ed-num">02</div><div><h4>Живой разговор, а не сценарий</h4><p>Говорю с гостями, а не просто вызываю их к микрофону по пунктам программы. Лучшие моменты вечера часто начинаются с чьей-то простой истории.</p></div></div>
+        <div class="ed-row"><div class="ed-num">01</div><div><h4>Личный подход</h4><p>Вникаю в&nbsp;историю пары: как&nbsp;познакомились, кого обязательно отметить, как&nbsp;зовут маму и&nbsp;лучшую подругу, и&nbsp;использую эти детали в&nbsp;программе, а&nbsp;не&nbsp;общие фразы.</p></div></div>
+        <div class="ed-row"><div class="ed-num">02</div><div><h4>Живой разговор, а&nbsp;не&nbsp;сценарий</h4><p>Говорю с&nbsp;гостями, а&nbsp;не&nbsp;просто вызываю их&nbsp;к&nbsp;микрофону по&nbsp;пунктам программы. Лучшие моменты вечера часто начинаются с&nbsp;чьей-то простой истории.</p></div></div>
       </div>
       <div>
-        <div class="ed-row"><div class="ed-num">03</div><div><h4>Участвует, кто сам хочет</h4><p>Никого не тяну к микрофону силой. Каждый сам решает, включаться или наблюдать.</p></div></div>
-        <div class="ed-row"><div class="ed-num">04</div><div><h4>Вдохновляюсь не сценариями</h4><p>Хорошим кино, разговорами по душам, семьёй, свободой. Мне интереснее придумать момент под вашу семью, чем принести ещё один «авторский конкурс».</p></div></div>
+        <div class="ed-row"><div class="ed-num">03</div><div><h4>Участвует, кто сам хочет</h4><p>Никого не&nbsp;тяну к&nbsp;микрофону силой. Каждый сам решает, включаться или&nbsp;наблюдать.</p></div></div>
+        <div class="ed-row"><div class="ed-num">04</div><div><h4>Вдохновляюсь не&nbsp;сценариями</h4><p>Хорошим кино, разговорами по&nbsp;душам, семьёй, свободой. Мне&nbsp;интереснее придумать момент под&nbsp;вашу семью, чем&nbsp;принести ещё один «авторский конкурс».</p></div></div>
       </div>
     </div>
   </div>
@@ -525,46 +622,46 @@
 
 <section id="values">
   <div class="wrap">
-    <span class="eyebrow">05 — Ценности</span>
-    <h2>Если мы совпадаем по ценностям, нам будет легко сделать вашу свадьбу вместе</h2>
+    <span class="eyebrow">05 · Ценности</span>
+    <h2>Если мы&nbsp;совпадаем по&nbsp;ценностям, нам будет легко сделать вашу свадьбу вместе</h2>
     <div class="values-grid">
-      <div><h4>Семья</h4><p>Место, куда хочется возвращаться в любой день.</p></div>
-      <div><h4>Свобода</h4><p>Не люблю, когда всё расписано по минутам — ни в жизни, ни на свадьбе.</p></div>
-      <div><h4>Хорошие фильмы</h4><p>Особенно старое итальянское кино. Оттуда чувство юмора и лёгкость, а не из шоу.</p></div>
-      <div><h4>Разговоры по душам</h4><p>Один настоящий разговор ценнее десяти вежливых.</p></div>
+      <div><h4>Семья</h4><p>Место, куда хочется возвращаться в&nbsp;любой день.</p></div>
+      <div><h4>Свобода</h4><p>Не&nbsp;люблю, когда всё&nbsp;расписано по&nbsp;минутам, ни&nbsp;в&nbsp;жизни, ни&nbsp;на&nbsp;свадьбе.</p></div>
+      <div><h4>Хорошие фильмы</h4><p>Особенно старое итальянское кино. Оттуда чувство юмора и&nbsp;лёгкость, а&nbsp;не&nbsp;из&nbsp;шоу.</p></div>
+      <div><h4>Разговоры по&nbsp;душам</h4><p>Один настоящий разговор ценнее десяти вежливых.</p></div>
       <div><h4>Путешествия</h4><p>Автодом, дорога, новые города.</p></div>
-      <div><h4>Море каждый год</h4><p>Традиция каждый год ненадолго уезжать к морю.</p></div>
+      <div><h4>Море каждый&nbsp;год</h4><p>Традиция каждый год ненадолго уезжать к&nbsp;морю.</p></div>
     </div>
   </div>
 </section>
 
 <section class="process" id="process">
   <div class="wrap">
-    <span class="eyebrow">06 — Процесс</span>
-    <h2>Как проходит работа со мной</h2>
-    <p class="lead">От первого разговора до дня свадьбы — вот что происходит на каждом шаге.</p>
+    <span class="eyebrow">06 · Процесс</span>
+    <h2>Как&nbsp;проходит работа со&nbsp;мной</h2>
+    <p class="lead">От&nbsp;первого разговора до&nbsp;дня свадьбы, вот что&nbsp;происходит на&nbsp;каждом шаге.</p>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-num">1</div><div class="tl-text"><h4>Встреча или созвон, около часа</h4><p>До подписания договора открыто рассказываю, как строится программа, показываю примеры. Вы делитесь пожеланиями — и вместе понимаем, подходим ли друг другу.</p></div></div>
-      <div class="tl-item"><div class="tl-num">2</div><div class="tl-text"><h4>Бронирование даты</h4><p>Договор и 15% от гонорара. Дата закрепляется только за вами. Остаток — в день мероприятия.</p></div></div>
-      <div class="tl-item"><div class="tl-num">3</div><div class="tl-text"><h4>Собираем программу вокруг вас</h4><p>Истории, люди, музыка, идеи и то, что важно именно вам.</p></div></div>
-      <div class="tl-item"><div class="tl-num">4</div><div class="tl-text"><h4>Остаюсь на связи</h4><p>Отвечаю на организационные вопросы с момента брони и до свадьбы. Да, даже если стало тревожно в воскресенье вечером.</p></div></div>
-      <div class="tl-item"><div class="tl-num">5</div><div class="tl-text"><h4>Финальная встреча</h4><p>За неделю до свадьбы сверяем все детали и правим программу.</p></div></div>
-      <div class="tl-item"><div class="tl-num">6</div><div class="tl-text"><h4>День Х</h4><p>Чёткий тайминг. Вы всегда знаете, что будет дальше.</p></div></div>
+      <div class="tl-item"><div class="tl-num">1</div><div class="tl-text"><h4>Встреча или&nbsp;созвон, около часа</h4><p>До&nbsp;подписания договора открыто рассказываю, как&nbsp;строится программа, показываю примеры. Вы&nbsp;делитесь пожеланиями, и&nbsp;вместе понимаем, подходим&nbsp;ли&nbsp;друг другу.</p></div></div>
+      <div class="tl-item"><div class="tl-num">2</div><div class="tl-text"><h4>Бронирование даты</h4><p>Договор и&nbsp;15% от&nbsp;гонорара. Дата закрепляется только за&nbsp;вами. Остаток, в&nbsp;день мероприятия.</p></div></div>
+      <div class="tl-item"><div class="tl-num">3</div><div class="tl-text"><h4>Собираем программу вокруг&nbsp;вас</h4><p>Истории, люди, музыка, идеи и&nbsp;то, что&nbsp;важно именно&nbsp;вам.</p></div></div>
+      <div class="tl-item"><div class="tl-num">4</div><div class="tl-text"><h4>Остаюсь на&nbsp;связи</h4><p>Отвечаю на&nbsp;организационные вопросы с&nbsp;момента брони и&nbsp;до&nbsp;свадьбы. Да, даже если стало тревожно в&nbsp;воскресенье вечером.</p></div></div>
+      <div class="tl-item"><div class="tl-num">5</div><div class="tl-text"><h4>Финальная встреча</h4><p>За&nbsp;неделю до&nbsp;свадьбы сверяем все&nbsp;детали и&nbsp;правим программу.</p></div></div>
+      <div class="tl-item"><div class="tl-num">6</div><div class="tl-text"><h4>День&nbsp;Х</h4><p>Чёткий тайминг. Вы&nbsp;всегда знаете, что&nbsp;будет дальше.</p></div></div>
     </div>
   </div>
 </section>
 
 <section id="ideas">
   <div class="wrap">
-    <span class="eyebrow">07 — Развлечения</span>
-    <h2>Развлечения, которые не выглядят как обязаловка</h2>
+    <span class="eyebrow">07 · Развлечения</span>
+    <h2>Развлечения, которые не&nbsp;выглядят как&nbsp;обязаловка</h2>
     <div class="ed-list ed-cols">
       <div>
-        <div class="ed-row"><div class="ed-num">—</div><div><h4>Традиции</h4><p>Обсуждаем, что для вас лично важно сохранить — без шаблона «как у всех».</p></div></div>
-        <div class="ed-row"><div class="ed-num">—</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40 минут — танцы и отдых, музыка подбирается под вкус пары.</p></div></div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Традиции</h4><p>Обсуждаем, что&nbsp;для&nbsp;вас&nbsp;лично важно сохранить, без&nbsp;шаблона «как&nbsp;у&nbsp;всех».</p></div></div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40&nbsp;минут, танцы и&nbsp;отдых, музыка подбирается под&nbsp;вкус пары.</p></div></div>
       </div>
       <div>
-        <div class="ed-row"><div class="ed-num">—</div><div><h4>Разные поколения за одним столом</h4><p>Ваши друзья и бабушка могут сидеть рядом, и никому не должно быть неловко — не через отдельные «конкурсы для бабушек», а через разговор и внимание к каждому.</p></div></div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Разные поколения за&nbsp;одним столом</h4><p>Ваши друзья и&nbsp;бабушка могут сидеть рядом, и&nbsp;никому не&nbsp;должно быть неловко, не&nbsp;через отдельные «конкурсы для&nbsp;бабушек», а&nbsp;через разговор и&nbsp;внимание к&nbsp;каждому.</p></div></div>
       </div>
     </div>
   </div>
@@ -573,8 +670,8 @@
 <section class="interlude interlude-compact" id="corporate">
   <div class="wrap">
     <div>
-      <h3>Провожу и другие мероприятия</h3>
-      <p>Корпоративы и юбилеи — с тем же подходом.</p>
+      <h3>Провожу и&nbsp;другие мероприятия</h3>
+      <p>Корпоративы и&nbsp;юбилеи, с&nbsp;тем&nbsp;же&nbsp;подходом.</p>
     </div>
     <!-- TODO: заменить ссылку на отдельный лендинг для корпоративных мероприятий, когда он будет готов -->
     <a href="#" class="btn btn-ghost-dark">Подробнее</a>
@@ -584,23 +681,23 @@
 <section class="faq" id="faq">
   <div class="wrap">
     <span class="eyebrow">Вопросы, которые чаще всего задают</span>
-    <div class="faq-quote">«Хочется, чтобы было весело — но чтобы свадьба всё равно оставалась про вас, а не про ведущего.»</div>
+    <div class="faq-quote">«Хочется, чтобы было весело, но&nbsp;чтобы свадьба всё&nbsp;равно оставалась про&nbsp;вас, а&nbsp;не&nbsp;про&nbsp;ведущего.»</div>
     <div class="faq-grid">
       <div class="faq-item">
-        <h4>А если гости не захотят участвовать?</h4>
-        <p>Никого не тяну к микрофону силой. Чувствую настроение зала и предлагаю участие там, где оно возникает само.</p>
+        <h4>А&nbsp;если гости не&nbsp;захотят участвовать?</h4>
+        <p>Никого не&nbsp;тяну к&nbsp;микрофону силой. Чувствую настроение зала и&nbsp;предлагаю участие там, где оно возникает само.</p>
       </div>
       <div class="faq-item">
-        <h4>Не станет ли ведущий главным героем нашей свадьбы?</h4>
-        <p>Нет. Я не в центре — я рядом. Главные здесь вы и ваши люди, а моя работа — помочь этому дню случиться.</p>
+        <h4>Не&nbsp;станет&nbsp;ли&nbsp;ведущий главным героем нашей свадьбы?</h4>
+        <p>Нет. Я&nbsp;не&nbsp;в&nbsp;центре, я&nbsp;рядом. Главные здесь вы&nbsp;и&nbsp;ваши люди, а&nbsp;моя работа, помочь этому дню случиться.</p>
       </div>
       <div class="faq-item">
-        <h4>Что если что-то пойдёт не по плану?</h4>
-        <p>За годы бывало разное: свадьба без жениха, отключение света посреди вечера, двадцать минут держал зал перед выходом артиста. Справлялись — справимся и в этот раз.</p>
+        <h4>Что&nbsp;если что-то пойдёт не&nbsp;по&nbsp;плану?</h4>
+        <p>За&nbsp;годы бывало разное: свадьба без&nbsp;жениха, отключение света посреди вечера, двадцать минут держал зал перед выходом артиста. Справлялись, справимся и&nbsp;в&nbsp;этот&nbsp;раз.</p>
       </div>
       <div class="faq-item">
-        <h4>Получится ли объединить очень разных гостей и поколения?</h4>
-        <p>Да. Ваши друзья и бабушка вполне могут оказаться за одним разговором — дело не в конкурсах, а в том, чтобы поговорить с каждым.</p>
+        <h4>Получится&nbsp;ли&nbsp;объединить очень разных гостей и&nbsp;поколения?</h4>
+        <p>Да. Ваши друзья и&nbsp;бабушка вполне могут оказаться за&nbsp;одним разговором, дело не&nbsp;в&nbsp;конкурсах, а&nbsp;в&nbsp;том, чтобы поговорить с&nbsp;каждым.</p>
       </div>
     </div>
   </div>
@@ -608,24 +705,24 @@
 
 <section id="awards">
   <div class="wrap">
-    <span class="eyebrow">08 — Награды и отзывы</span>
+    <span class="eyebrow">08 · Награды и&nbsp;отзывы</span>
     <h2>Опыт, который можно проверить</h2>
     <div class="badges-row">
-      <span>Финалист Wedding Awards NW 2023</span>
-      <span>Серебро Wedding Awards NW 2025</span>
-      <span>400+ отзывов</span>
+      <span>Финалист Wedding Awards NW&nbsp;2023</span>
+      <span>Серебро Wedding Awards NW&nbsp;2025</span>
+      <span>400+&nbsp;отзывов</span>
       <!-- TODO: Тимофей на встрече отметил, что ещё думает над формулировкой этого пункта — уточнить финальный текст перед публикацией -->
-      <span>Вёл мероприятия у первых лиц</span>
+      <span>Вёл мероприятия у&nbsp;первых&nbsp;лиц</span>
     </div>
     <div class="review-grid">
       <div class="review-card">
-        <span class="fear">Переживали, что вместо ведущего получат тамаду</span>
-        <p>«У нас будет ведущий, но у нас не будет тамады» — эту разницу родители пары поняли только после самого праздника.</p>
-        <div class="who">Наталья Елистратова — свадьба 17.10.2025</div>
+        <span class="fear">Переживали, что&nbsp;вместо ведущего получат тамаду</span>
+        <p>«У&nbsp;нас&nbsp;будет ведущий, но&nbsp;у&nbsp;нас&nbsp;не&nbsp;будет тамады», эту разницу родители пары поняли только после самого праздника.</p>
+        <div class="who">Наталья Елистратова, свадьба 17.10.2025</div>
       </div>
       <div class="review-card">
-        <span class="fear">Боялись, что с новым человеком будет неловко</span>
-        <p>Гости, которых спросили о свадьбе уже спустя пару месяцев, независимо друг от друга говорили: казалось, что Тимофей знал их целую вечность — настолько легко он переходил от шуток к тёплым моментам.</p>
+        <span class="fear">Боялись, что&nbsp;с&nbsp;новым человеком будет неловко</span>
+        <p>Гости, которых спросили о&nbsp;свадьбе уже&nbsp;спустя пару месяцев, независимо друг от&nbsp;друга говорили: казалось, что&nbsp;Тимофей знал их&nbsp;целую вечность, настолько легко он&nbsp;переходил от&nbsp;шуток к&nbsp;тёплым моментам.</p>
         <div class="who">Дарина Темнова</div>
       </div>
     </div>
@@ -637,8 +734,8 @@
     <div class="guide">
       <div class="guide-text">
         <span class="eyebrow">Бесплатно</span>
-        <h3>Гайд: как выбрать ведущего на свадьбу</h3>
-        <p>На что обратить внимание и какие вопросы задать на первой встрече, чтобы потом не жалеть о выборе.</p>
+        <h3>Гайд: как&nbsp;выбрать ведущего на&nbsp;свадьбу</h3>
+        <p>На&nbsp;что&nbsp;обратить внимание и&nbsp;какие вопросы задать на&nbsp;первой встрече, чтобы потом не&nbsp;жалеть о&nbsp;выборе.</p>
       </div>
       <div class="guide-cta">
         <!-- TODO: заменить href на актуальную ссылку на PDF -->
@@ -652,19 +749,21 @@
   <div class="wrap">
     <span class="eyebrow">Контакты</span>
     <h2>Давайте вместе создавать историю</h2>
-    <p class="lead">Я рядом, чтобы помочь вам сделать этот день вашим. Расскажите о своём празднике — отвечу и подскажу, как лучше начать подготовку.</p>
-    <div class="phone">+7 952 287-53-75</div>
+    <p class="lead">Я&nbsp;рядом, чтобы помочь вам&nbsp;сделать этот день вашим. Расскажите о&nbsp;своём празднике, отвечу и&nbsp;подскажу, как&nbsp;лучше начать подготовку.</p>
+    <div class="phone">+7&nbsp;952&nbsp;287-53-75</div>
     <div class="contact-buttons">
       <!-- TODO: заменить href на реальные ссылки на соцсети/мессенджеры -->
-      <a href="#" class="btn btn-ghost-dark">Написать в Instagram</a>
-      <a href="#" class="text-link">VK</a>
-      <a href="#" class="text-link">WhatsApp</a>
+      <a href="#" class="btn btn-ghost-dark">Написать в&nbsp;Instagram</a>
+      <div class="contact-alt">
+        <a href="#" class="text-link">VK</a>
+        <a href="#" class="text-link">WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  Тимофей Арапов — ведущий свадеб и мероприятий, Санкт-Петербург
+  Тимофей Арапов, ведущий свадеб и&nbsp;мероприятий, <span class="nowrap">Санкт-Петербург</span>
 </footer>
 
 <script>
