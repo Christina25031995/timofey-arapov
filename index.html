@@ -443,6 +443,8 @@
     .reel-info h4{font-size:22px;}
     .reel-info p{text-align:left;}
   }
+  .reel-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:4;}
+  .reel-card.playing .reel-play,.reel-card.playing .reel-tag,.reel-card.playing .reel-num{opacity:0;pointer-events:none;}
 </style>
 </head>
 <body>
@@ -516,24 +518,25 @@
     <p class="lead one-line">Без&nbsp;монтажа под&nbsp;музыку, то, что&nbsp;происходит на&nbsp;настоящих свадьбах.</p>
     <div class="reel-stage">
       <div class="reel-word" aria-hidden="true">Showreel</div>
-      <!-- TODO: NEW SHOWREEL — вставить embed нового шоурила (Instagram/VK) вместо постера -->
-      <div class="reel-card reel-main">
+      <div class="reel-card reel-main" data-video="video/showreel.mp4">
         <div class="reel-media">
+          <img src="video/showreel.jpg" alt="Шоурил Тимофея Арапова" loading="lazy">
           <span class="reel-num">01</span>
           <span class="reel-tag"><i></i>Rec</span>
           <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring1" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring1" textLength="292">Смотреть · Шоурил · Смотреть · Шоурил ·</textPath></text></svg></span>
         </div>
-        <div class="reel-info"><h4>Новый шоурил</h4><p>Главное о&nbsp;том, как&nbsp;я&nbsp;веду, за&nbsp;несколько минут</p></div>
+        <div class="reel-info"><h4>Шоурил 2026</h4><p>Главное о&nbsp;том, как&nbsp;я&nbsp;веду, за&nbsp;несколько минут</p></div>
       </div>
       <div class="reel-col">
         <div class="reel-note">Настоящие свадьбы<br>без&nbsp;монтажа<br>и&nbsp;постановки</div>
-        <!-- TODO: FULL CEREMONY — вставить embed полной церемонии вместо постера -->
-        <div class="reel-card reel-side">
+        <!-- Фрагмент выездной регистрации (2:20). Полную запись Тимофей выложит на видеоплощадку, тогда заменить на неё -->
+        <div class="reel-card reel-side" data-video="video/ceremony.mp4">
           <div class="reel-media">
+            <img src="video/ceremony.jpg" alt="Тимофей Арапов ведёт выездную регистрацию" loading="lazy">
             <span class="reel-num">02</span>
             <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring2" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring2" textLength="292">Смотреть · Церемония · Смотреть · Церемония ·</textPath></text></svg></span>
           </div>
-          <div class="reel-info"><h4>Церемония целиком</h4><p>Как&nbsp;всё&nbsp;проходит от&nbsp;начала до&nbsp;конца</p></div>
+          <div class="reel-info"><h4>Церемония</h4><p>Живые моменты выездной регистрации</p></div>
         </div>
       </div>
     </div>
@@ -852,5 +855,15 @@
   }
 </script>
 
+<script>
+  // Видео в карточках: загружается только по нажатию
+  document.querySelectorAll('.reel-card[data-video]').forEach((card) => card.addEventListener('click', () => {
+    if (card.classList.contains('playing')) return;
+    const v = document.createElement('video');
+    v.src = card.dataset.video; v.controls = true; v.playsInline = true; v.autoplay = true;
+    card.querySelector('.reel-media').appendChild(v);
+    card.classList.add('playing');
+  }));
+</script>
 </body>
 </html>
