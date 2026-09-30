@@ -445,6 +445,12 @@
   }
   .reel-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:4;}
   .reel-card.playing .reel-play,.reel-card.playing .reel-tag,.reel-card.playing .reel-num{opacity:0;pointer-events:none;}
+  .groom-promo{cursor:pointer;}
+  .groom-promo .video-thumb{position:relative;overflow:hidden;}
+  .groom-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.8);transition:filter .6s,transform 1.2s;}
+  .groom-promo:hover .groom-poster{filter:grayscale(0) brightness(.9);transform:scale(1.04);}
+  .groom-promo .play-btn{position:relative;z-index:1;}
+  .groom-promo video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:2;}
 </style>
 </head>
 <body>
@@ -554,8 +560,7 @@
       <h2 class="about-title">Обычный ведущий, который<br class="br-desk"> пару лет назад сам стал женихом</h2>
       <!-- TODO: подтвердить точное количество проведённых мероприятий (обсуждалось ориентировочно 1000–1200, но цифра не подтверждена) -->
       <p class="lead">За&nbsp;годы работы, сотни мероприятий, несколько выступлений «у&nbsp;первых лиц» (сам в&nbsp;шоке), финал Wedding Awards Northwest в&nbsp;2023-м и&nbsp;серебро в&nbsp;2025-м.</p>
-      <!-- TODO: GROOM PROMO — вставить embed промо «Тимофей — жених» вместо плейсхолдера -->
-      <div class="groom-promo video-card"><div class="video-thumb"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей, жених</h4><p>Каково это, оказаться по&nbsp;другую сторону свадьбы</p></div></div>
+            <div class="groom-promo video-card" data-video="video/groom-2023.mp4"><div class="video-thumb"><img class="groom-poster" src="video/groom-2023.jpg" alt="Тимофей Арапов, видео 2023" loading="lazy"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей, жених</h4><p>Каково это, оказаться по&nbsp;другую сторону свадьбы</p></div></div>
       <p>Пару лет назад я&nbsp;сам стал женихом, и&nbsp;решил пройти этот путь до&nbsp;конца, а&nbsp;не&nbsp;наблюдать со&nbsp;стороны. Оказалось, выбрать оттенок столовых приборов, задача не&nbsp;проще, чем&nbsp;вести вечер на&nbsp;150&nbsp;человек. А&nbsp;вопрос «зачем звать тётю Катю» волнует не&nbsp;только гостей.</p>
       <p>Опыт «с&nbsp;другой стороны» изменил мою программу: называть каждого гостя по&nbsp;имени, слушать и&nbsp;рассказывать истории, обязательно говорить «спасибо» родителям, и&nbsp;быть на&nbsp;празднике другом, а&nbsp;не&nbsp;функцией с&nbsp;микрофоном.</p>
       <p>Перед каждым праздником вникаю в&nbsp;историю пары: как&nbsp;познакомились, что&nbsp;было важного на&nbsp;пути друг к&nbsp;другу, кого обязательно нужно упомянуть. Узнаю, как&nbsp;зовут маму и&nbsp;лучшую подругу, и&nbsp;те&nbsp;мелочи, которые знают только близкие, и&nbsp;аккуратно вплетаю это&nbsp;в&nbsp;программу, а&nbsp;не&nbsp;в&nbsp;дежурные фразы. Поэтому гости потом говорят: «интеллигентный ведущий», то&nbsp;есть внимательнее, а&nbsp;не&nbsp;громче.</p>
@@ -863,6 +868,20 @@
     v.src = card.dataset.video; v.controls = true; v.playsInline = true; v.autoplay = true;
     card.querySelector('.reel-media').appendChild(v);
     card.classList.add('playing');
+  }));
+</script>
+<script>
+  // Окошко «Тимофей, жених»: по нажатию видео на весь экран
+  document.querySelectorAll('.groom-promo[data-video]').forEach((card) => card.addEventListener('click', () => {
+    let v = card.querySelector('video');
+    if (!v) {
+      v = document.createElement('video');
+      v.src = card.dataset.video; v.controls = true; v.playsInline = true;
+      card.querySelector('.video-thumb').appendChild(v);
+    }
+    v.play().catch(() => {});
+    if (v.requestFullscreen) v.requestFullscreen().catch(() => {});
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
   }));
 </script>
 </body>
