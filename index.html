@@ -457,6 +457,8 @@
   .groom-poster{filter:none !important;}
   .groom-promo:hover .groom-poster{filter:brightness(1.05) !important;}
   @media (max-width:680px){.groom-promo{width:100% !important;max-width:340px;}}
+  /* На телефоне и планшете (нет наведения) обложки видео сразу цветные */
+  @media (hover:none){.reel-media img{filter:contrast(1.02) brightness(.88) !important;}}
 </style>
 </head>
 <body>
