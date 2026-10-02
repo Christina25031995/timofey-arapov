@@ -53,8 +53,8 @@
     '#ta-cookie .ta-necessary:hover{border-color:#D4B47C;}' +
     '#ta-cookie button:focus-visible{outline:2px solid #D4B47C;outline-offset:2px;}' +
     '@media (max-width:900px){#ta-cookie{bottom:calc(96px + env(safe-area-inset-bottom,0px));}}' +
-    '@media (max-width:420px){#ta-cookie .ta-y{display:none}#ta-cookie{padding:16px 14px;}}' +
-    '@media (max-width:359px){#ta-cookie p{white-space:normal}}';
+    '#ta-cookie .ta-m{display:none}' +
+    '@media (max-width:900px){#ta-cookie p{white-space:normal;text-wrap:pretty}#ta-cookie .ta-d{display:none}#ta-cookie .ta-m{display:block}}';
 
   var banner = null;
 
@@ -69,7 +69,8 @@
     banner.setAttribute('aria-label', 'Настройки cookie');
     banner.hidden = true;
     banner.innerHTML =
-      '<p>Используем cookie и<span class="ta-y">&nbsp;Яндекс</span> Метрику. <a href="' + POLICY + '">Подробнее</a></p>' +
+      '<p class="ta-d">Используем cookie и&nbsp;Яндекс Метрику. <a href="' + POLICY + '">Подробнее</a></p>' +
+      '<p class="ta-m">Сайт использует cookie и&nbsp;Яндекс Метрику, чтобы считать посещения. <a href="' + POLICY + '">Подробнее о&nbsp;cookie</a></p>' +
       '<div class="ta-btns">' +
       '<button type="button" class="ta-accept">Принять</button>' +
       '<button type="button" class="ta-necessary">Только необходимые</button>' +
