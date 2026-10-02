@@ -42,7 +42,7 @@
     '-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#F2EEE6;' +
     "font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.5;}" +
     '#ta-cookie[hidden]{display:none}' +
-    '#ta-cookie p{margin:0 0 14px;color:rgba(242,238,230,.75);text-wrap:pretty;}' +
+    '#ta-cookie p{margin:0 0 14px;color:rgba(242,238,230,.75);white-space:nowrap;}' +
     '#ta-cookie a{color:#D4B47C;border-bottom:1px solid currentColor;text-decoration:none;white-space:nowrap;}' +
     '#ta-cookie .ta-btns{display:flex;flex-wrap:wrap;gap:8px;}' +
     '#ta-cookie button{flex:1 1 150px;min-height:42px;padding:10px 16px;cursor:pointer;' +
@@ -52,7 +52,9 @@
     '#ta-cookie .ta-necessary{background:transparent;color:#F2EEE6;border:1px solid rgba(242,238,230,.3);}' +
     '#ta-cookie .ta-necessary:hover{border-color:#D4B47C;}' +
     '#ta-cookie button:focus-visible{outline:2px solid #D4B47C;outline-offset:2px;}' +
-    '@media (max-width:900px){#ta-cookie{bottom:calc(96px + env(safe-area-inset-bottom,0px));}}';
+    '@media (max-width:900px){#ta-cookie{bottom:calc(96px + env(safe-area-inset-bottom,0px));}}' +
+    '@media (max-width:420px){#ta-cookie .ta-y{display:none}#ta-cookie{padding:16px 14px;}}' +
+    '@media (max-width:359px){#ta-cookie p{white-space:normal}}';
 
   var banner = null;
 
@@ -67,7 +69,7 @@
     banner.setAttribute('aria-label', 'Настройки cookie');
     banner.hidden = true;
     banner.innerHTML =
-      '<p>Сайт использует cookie и&nbsp;Яндекс Метрику, чтобы считать посещения. <a href="' + POLICY + '">Подробнее о&nbsp;cookie</a></p>' +
+      '<p>Используем cookie и<span class="ta-y">&nbsp;Яндекс</span> Метрику. <a href="' + POLICY + '">Подробнее</a></p>' +
       '<div class="ta-btns">' +
       '<button type="button" class="ta-accept">Принять</button>' +
       '<button type="button" class="ta-necessary">Только необходимые</button>' +
