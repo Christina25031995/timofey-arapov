@@ -6,7 +6,7 @@
   var KEY = 'ta_cookie_consent';
   // ЗАМЕНИТЬ: номер счётчика Яндекс Метрики Тимофея. Пока null, Метрика не загружается.
   var METRIKA_ID = null;
-  var POLICY = 'https://christina25031995.github.io/timofey-arapov/privacy/#cookie';
+  var POLICY = '/privacy/#cookie';
   var metrikaLoaded = false;
 
   function getChoice() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /korporativy/kp/
+Disallow: /privacy/
+Disallow: /soglasie/
+
+Sitemap: https://arapovtimofey.ru/sitemap.xml
