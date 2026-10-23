@@ -498,6 +498,27 @@
   @media (min-width:861px){.reel-word{left:24.5%;top:80%;font-size:clamp(96px,10vw,150px);}}
   .reel-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:4;background:#000;}
   @media (max-width:860px){.examples{grid-template-columns:1fr;gap:28px;}}
+  /* правки Кристины 23.10 */
+  .timeline{display:grid !important;grid-template-columns:repeat(3,1fr);gap:0 40px;}
+  .timeline .tl-item{border-bottom:none;border-top:1px solid rgba(255,255,255,.14);flex-direction:column;gap:14px;padding:26px 0 30px;}
+  .timeline .tl-num{align-self:flex-start;flex:none;width:44px;height:44px;}
+  .ideas-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin-top:8px;}
+  .ideas-row .ed-row{grid-template-columns:1fr;gap:0;border-bottom:none;}
+  .ideas-row .ed-num{display:none;}
+  .award-row{display:grid;grid-template-columns:repeat(5,1fr);margin:36px 0 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .award-row div{padding:22px 20px 22px 0;}
+  .award-row div + div{padding-left:20px;border-left:1px solid var(--line);}
+  .award-row b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:24px;line-height:1.15;margin-bottom:8px;}
+  .award-row span{display:block;font-size:13px;line-height:1.45;color:var(--muted);}
+  @media (min-width:1100px){.faq-quote{max-width:none;white-space:nowrap;font-size:clamp(19px,1.75vw,25px);}}
+  @media (max-width:860px){
+    .timeline{grid-template-columns:1fr 1fr;gap:0 24px;}
+    .ideas-row{grid-template-columns:1fr;}
+    .award-row{grid-template-columns:1fr 1fr;}
+    .award-row div,.award-row div + div{padding:18px 12px 18px 0;border-left:none;border-bottom:1px solid var(--line);}
+    .award-row div:last-child{grid-column:span 2;border-bottom:none;}
+  }
+  @media (max-width:420px){.timeline{grid-template-columns:1fr;}.timeline .tl-item{flex-direction:row;gap:18px;padding:20px 0;}.timeline .tl-num{width:36px;height:36px;font-size:14px;}}
 </style>
 </head>
 <body>
@@ -650,7 +671,7 @@
   <img class="bw" src="/images/scatter-fullbg.jpg" alt="Тимофей Арапов отходит в сторону, уступая внимание гостям" loading="lazy">
   <div class="statement-text">
     <div class="wrap">
-      <h2>Я&nbsp;не&nbsp;в&nbsp;центре свадьбы, я&nbsp;рядом. Чтобы вы&nbsp;не&nbsp;пропустили важные&nbsp;моменты.</h2>
+      <h2>Не&nbsp;в&nbsp;центре свадьбы, а&nbsp;рядом. Чтобы вы&nbsp;не&nbsp;пропустили важные&nbsp;моменты.</h2>
     </div>
   </div>
 </section>
@@ -699,14 +720,10 @@
   <div class="wrap">
     <span class="eyebrow">06 · Развлечения</span>
     <h2>Развлечения, которые не&nbsp;выглядят как&nbsp;обязаловка</h2>
-    <div class="ed-list ed-cols">
-      <div>
+    <div class="ideas-row">
         <div class="ed-row"><div class="ed-num">·</div><div><h4>Традиции</h4><p>Обсуждаем, что&nbsp;для&nbsp;вас&nbsp;лично важно сохранить, без&nbsp;шаблона «как&nbsp;у&nbsp;всех».</p></div></div>
-        <div class="ed-row"><div class="ed-num">·</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40&nbsp;минут, танцы и&nbsp;отдых, музыка подбирается под&nbsp;вкус пары.</p></div></div>
-      </div>
-      <div>
         <div class="ed-row"><div class="ed-num">·</div><div><h4>Разные поколения за&nbsp;одним столом</h4><p>Ваши друзья и&nbsp;бабушка могут сидеть рядом, и&nbsp;никому не&nbsp;должно быть неловко, не&nbsp;через отдельные «конкурсы для&nbsp;бабушек», а&nbsp;через разговор и&nbsp;внимание к&nbsp;каждому.</p></div></div>
-      </div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40&nbsp;минут, танцы и&nbsp;отдых, музыка подбирается под&nbsp;вкус пары.</p></div></div>
     </div>
   </div>
 </section>
@@ -738,12 +755,12 @@
   <div class="wrap">
     <span class="eyebrow">07 · Награды и&nbsp;отзывы</span>
     <h2>Опыт, который можно проверить</h2>
-    <div class="badges-row">
-      <span>Финалист Wedding Awards Северо-Запад&nbsp;2023</span>
-      <span>Серебро Wedding Awards Северо-Запад&nbsp;2025</span>
-      <span>Входил в&nbsp;десятку лучших ведущих Северо-Запада по&nbsp;версии Wedding&nbsp;Awards</span>
-      <span>400+&nbsp;отзывов</span>
-      <span>Вёл мероприятия у&nbsp;первых&nbsp;лиц</span>
+    <div class="award-row">
+      <div><b>Финалист</b><span>Wedding Awards <span class="nowrap">Северо-Запад</span>&nbsp;2023</span></div>
+      <div><b>Серебро</b><span>Wedding Awards <span class="nowrap">Северо-Запад</span>&nbsp;2025</span></div>
+      <div><b>Топ-10</b><span>ведущих <span class="nowrap">Северо-Запада</span> по&nbsp;версии Wedding&nbsp;Awards</span></div>
+      <div><b>400+</b><span>отзывов от&nbsp;пар и&nbsp;гостей</span></div>
+      <div><b>Первые лица</b><span>вёл их&nbsp;мероприятия</span></div>
     </div>
     <div class="review-grid">
       <div class="review-card">

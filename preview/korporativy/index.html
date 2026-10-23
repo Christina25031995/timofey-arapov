@@ -832,6 +832,8 @@
   .light .logo-item img,.light .logo-row img{filter:brightness(0);opacity:.6;}
   .facts{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
   @media (max-width:900px){.facts{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}.facts .fact:nth-child(3){grid-column:span 2;}}
+  .logo-marquee{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);}
+  html,body{overflow-x:clip;}
   /* Кейсы: задача и решение */
   .story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .story{border-top:1px solid var(--line);padding-top:22px;}
@@ -986,7 +988,7 @@
       <div class="stat rv"><b><span data-count="1200">1200</span><sup>+</sup></b><span>мероприятий провёл</span></div>
       <div class="stat rv"><b><span data-count="400">400</span><sup>+</sup></b><span>отзывов от&nbsp;гостей и&nbsp;заказчиков</span></div>
       <div class="stat rv"><b><span data-count="15">15</span></b><span>лет на&nbsp;сцене, с&nbsp;2011&nbsp;года</span></div>
-      <div class="stat rv"><b>2</b><span>награды Wedding Awards Северо-Запад</span></div>
+      <div class="stat rv"><b>2</b><span>награды Wedding Awards <span class="nowrap">Северо-Запад</span></span></div>
     </div>
   </div>
 </section>
