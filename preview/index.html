@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>if(/github\.io$/.test(location.hostname))location.replace("https://arapovtimofey.ru"+location.pathname.replace(/^\/timofey-arapov/,"")+location.hash);</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Тимофей Арапов, ведущий свадеб и мероприятий, Санкт-Петербург</title>
+<meta name="description" content="Тимофей Арапов, ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор, настоящий контакт с гостями и атмосфера, в которой можно быть собой.">
+<link rel="canonical" href="https://arapovtimofey.ru/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arapovtimofey.ru/">
+<meta property="og:title" content="Тимофей Арапов, ведущий свадеб и мероприятий">
+<meta property="og:description" content="Ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор и настоящий контакт с гостями.">
+<meta property="og:image" content="https://arapovtimofey.ru/images/hero-timofey.jpg">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<script src="/cookie-consent.js" defer></script>
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --ink:#111111;
+    --muted:#6E6E6E;
+    --line:#E3E3E3;
+    --black:#0A0A0A;
+    --off:#F5F5F4;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reel-play svg,.reel-tag i{animation:none !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;font-weight:500;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .bw{filter:grayscale(1) contrast(1.06) brightness(.98);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{padding:108px 0;}
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  h2{font-size:clamp(30px,4vw,44px);margin:0 0 20px;color:var(--ink);font-weight:500;line-height:1.14;}
+  .lead{font-size:19px;color:var(--muted);max-width:660px;line-height:1.55;}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1180px;margin:0 auto;padding:20px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:500;color:var(--ink);letter-spacing:.01em;}
+  .nav-links{display:flex;gap:30px;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .nav-links a{color:var(--ink);opacity:.62;transition:.2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:3px;}
+  .nav-cta-mobile{display:none;}
+  .btn{
+    display:inline-block;padding:16px 32px;border-radius:var(--radius);
+    font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:#000;}
+  .btn-ghost-dark{border-color:rgba(255,255,255,.55);color:#fff;}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.12);}
+  .text-link{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px;}
+  .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+
+  /* HERO */
+  .hero{
+    position:relative;height:230vh;overflow:hidden;background:#000;
+  }
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .hero-badges{
+    position:absolute;top:148px;right:32px;z-index:2;text-align:right;
+    display:flex;flex-direction:column;gap:48px;max-width:280px;
+  }
+  .badge-big .badge-title{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,3.4vw,42px);
+    letter-spacing:0;text-transform:uppercase;line-height:1.08;color:#fff;margin-bottom:14px;
+    white-space:nowrap;
+  }
+  .badge-big .badge-cap,.badge-stat{
+    font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    color:rgba(255,255,255,.78);line-height:1.6;font-weight:500;
+  }
+
+  /* CUSTOM CURSOR */
+  @media (hover:hover) and (pointer:fine){
+    a,button{cursor:none;}
+    .cursor-trail{
+      position:fixed;inset:0;width:100vw;height:100vh;
+      pointer-events:none;z-index:9999;mix-blend-mode:difference;opacity:0;
+      transition:opacity .2s;
+    }
+  }
+
+  /* INTRO (headline below hero photo) */
+  .intro{padding-top:88px;padding-bottom:48px;}
+  #for-you{padding-top:56px;}
+  .intro h1{font-size:clamp(34px,5vw,56px);line-height:1.1;margin:0 0 22px;color:var(--ink);max-width:760px;}
+  .intro .lead{margin-bottom:36px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+
+  /* FOR-YOU / VALUES GRID (reused for "Для кого я" and "Ценности") */
+  .values-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px;padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .values-grid h4{
+    margin:0 0 8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);
+  }
+  .values-grid p{margin:0;font-size:14px;color:var(--muted);line-height:1.5;}
+  @media (max-width:680px){.values-grid{grid-template-columns:1fr;gap:20px;}}
+
+  /* ABOUT */
+  .about .wrap{display:grid;grid-template-columns:.9fr 1.3fr;gap:72px;align-items:start;}
+  .about-photo{overflow:hidden;position:sticky;top:130px;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/4;}
+  .pull-quote{
+    margin:32px 0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-family:'Playfair Display',serif;font-size:23px;font-weight:400;color:var(--ink);font-style:italic;line-height:1.45;
+  }
+
+  /* STATEMENT (big editorial quote over photo) */
+  .statement{position:relative;height:92vh;min-height:540px;overflow:hidden;background:#000;padding:0;}
+  .statement img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .statement::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.1) 30%,rgba(0,0,0,.78));
+  }
+  .statement-text{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;}
+  .statement-text .wrap{padding-bottom:72px;}
+  .statement-text h2{
+    color:#fff;font-size:clamp(28px,4.4vw,50px);max-width:780px;margin:0 0 16px;line-height:1.2;
+  }
+  .statement-text p{color:rgba(255,255,255,.78);font-size:16px;line-height:1.5;max-width:620px;margin:0 0 16px;}
+  .statement-text .cap{
+    color:rgba(255,255,255,.68);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  }
+  .statement.statement-sm{height:62vh;min-height:380px;}
+
+  /* SMALL FRAMED PHOTO INSET ("window") */
+  .inset-photo{
+    float:right;width:170px;margin:4px 0 20px 32px;padding:10px 10px 14px;background:#fff;
+    box-shadow:0 18px 34px rgba(0,0,0,.16);transform:rotate(1.6deg);
+  }
+  .inset-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;}
+  .inset-photo span{display:block;margin-top:8px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;}
+  @media (max-width:680px){.inset-photo{float:none;width:140px;margin:0 auto 22px;}}
+
+  /* SMALL GROOM-PROMO VIDEO INSET */
+  .groom-promo{float:right;width:170px;margin:4px 0 20px 32px;}
+  .groom-promo .video-thumb{aspect-ratio:9/13;}
+  .groom-promo .vinfo{padding:10px 2px 0;}
+  .groom-promo .vinfo h4{font-size:13px;}
+  .groom-promo .vinfo p{font-size:11.5px;}
+  @media (max-width:680px){.groom-promo{float:none;width:160px;margin:0 auto 22px;}}
+
+  /* BIG STATEMENT HEADLINE (graphic typographic treatment) */
+  .big-statement{
+    font-size:clamp(32px,5vw,60px);line-height:1.06;text-transform:uppercase;
+    letter-spacing:.005em;margin:0 0 22px;max-width:760px;
+  }
+
+  /* FAQ / GREY EDITORIAL BLOCK */
+  .faq{background:linear-gradient(165deg,#3c3c3c,#141414);color:#fff;}
+  .faq .eyebrow{color:rgba(255,255,255,.6);}
+  .faq-quote{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(19px,2.1vw,25px);line-height:1.5;max-width:800px;margin:0 0 56px;color:#fff;
+  }
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;}
+  .faq-item{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;}
+  .faq-item h4{margin:0 0 10px;font-size:16.5px;font-weight:600;color:#fff;font-family:'Playfair Display',serif;}
+  .faq-item p{margin:0;color:rgba(255,255,255,.68);font-size:14.5px;max-width:520px;}
+
+  /* GALLERY */
+  .gallery{padding:120px 0 0;background:#000;}
+  .gallery-heading{
+    text-align:center;color:#fff;font-family:'Playfair Display',serif;font-weight:500;
+    text-transform:uppercase;font-size:clamp(40px,8vw,96px);letter-spacing:.04em;
+    margin:0 0 56px;
+  }
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  .gallery-grid figure{margin:0;aspect-ratio:3/4;overflow:hidden;position:relative;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gallery-cap{
+    text-align:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);padding:16px 8px 32px;background:#000;
+  }
+
+  /* VIDEO GRID */
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+  .video-grid-2{grid-template-columns:repeat(2,1fr);max-width:640px;}
+  .video-thumb{
+    aspect-ratio:9/13;background:linear-gradient(160deg,#1a1a1a,#3a3a3a);
+    display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  .play-btn{
+    width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .play-btn::after{
+    content:'';border-left:14px solid rgba(255,255,255,.92);border-top:9px solid transparent;
+    border-bottom:9px solid transparent;margin-left:4px;
+  }
+  .video-card .vinfo{padding:16px 2px 0;}
+  .video-card .vinfo h4{margin:0 0 4px;font-size:15px;font-weight:500;font-family:'Playfair Display',serif;}
+  .video-card .vinfo p{margin:0;font-size:13px;color:var(--muted);}
+
+  /* EDITORIAL LIST (diff / ideas) */
+  .ed-list{margin-top:8px;}
+  .ed-row{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;
+    padding:30px 0;border-top:1px solid var(--line);align-items:baseline;
+  }
+  .ed-list .ed-row:last-child{border-bottom:1px solid var(--line);}
+  .ed-num{font-family:'Playfair Display',serif;font-size:20px;color:#C9C9C9;font-weight:400;}
+  .ed-row h4{margin:0 0 6px;font-size:17.5px;font-weight:600;}
+  .ed-row p{margin:0;font-size:15px;color:var(--muted);max-width:620px;}
+  .ed-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
+
+  /* PROCESS TIMELINE */
+  .process{background:var(--black);color:#fff;}
+  .process h2,.process .eyebrow{color:#fff;}
+  .process .eyebrow{color:rgba(255,255,255,.6);}
+  .process .lead{color:rgba(255,255,255,.62);}
+  .timeline{margin-top:48px;display:flex;flex-direction:column;gap:0;}
+  .tl-item{display:flex;gap:26px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14);}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-num{
+    flex:0 0 44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:500;font-family:'Playfair Display',serif;
+  }
+  .tl-text h4{margin:0 0 4px;font-size:17px;color:#fff;font-weight:500;font-family:'Playfair Display',serif;}
+  .tl-text p{margin:0;font-size:14.5px;color:rgba(255,255,255,.6);max-width:640px;}
+
+  /* INTERLUDE BANNER */
+  .interlude{background:var(--black);color:#fff;padding:64px 0;}
+  .interlude .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .interlude h3{margin:0 0 10px;font-size:28px;color:#fff;}
+  .interlude p{margin:0;max-width:480px;color:rgba(255,255,255,.62);font-size:15px;}
+  .interlude-compact h3{font-size:20px;margin-bottom:6px;}
+  .interlude-compact p{font-size:14px;}
+
+  /* AWARDS / REVIEWS */
+  .badges-row{
+    display:flex;gap:0;flex-wrap:wrap;margin:36px 0 56px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .badges-row span{
+    padding:18px 26px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:600;color:var(--ink);
+  }
+  @media (min-width:861px){
+    .badges-row span{border-right:1px solid var(--line);}
+    .badges-row span:last-child{border-right:none;}
+  }
+  .review-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .review-card{padding:0;}
+  .review-card .fear{
+    display:block;margin-bottom:14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .review-card p{
+    font-family:'Playfair Display',serif;font-size:21px;font-style:italic;font-weight:400;
+    color:var(--ink);margin:0 0 18px;line-height:1.45;
+  }
+  .review-card .who{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+
+  /* GUIDE */
+  .guide{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;
+    display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+  }
+  .guide-text{flex:1.4;min-width:280px;}
+  .guide-text h3{margin:0 0 10px;font-size:26px;font-weight:500;}
+  .guide-text p{margin:0;color:var(--muted);max-width:480px;}
+  .guide-cta{flex:0 0 auto;}
+  .guide-second{margin-top:20px;}
+
+  /* CONTACT */
+  .contact{background:var(--black);color:#fff;text-align:center;}
+  .contact h2{color:#fff;}
+  .contact .eyebrow{color:rgba(255,255,255,.6);}
+  .contact .lead{color:rgba(255,255,255,.6);margin:0 auto 40px;}
+  .contact-buttons{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:34px;align-items:center;}
+  .contact .phone{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:10px;font-weight:400;}
+
+  footer{padding:30px 0;text-align:center;font-size:12.5px;color:var(--muted);background:var(--bg);border-top:1px solid var(--line);}
+
+  @media (max-width:860px){
+    .nav-links,.nav-cta{display:none;}
+    .menu-toggle{display:block;}
+    .nav-links{
+      position:fixed;top:65px;left:0;right:0;height:calc(100vh - 65px);height:calc(100dvh - 65px);
+      flex-direction:column;align-items:stretch;gap:0;
+      background:#fff;padding:4px 28px 28px;overflow-y:auto;
+      border-top:1px solid var(--line);
+    }
+    .nav-links a{width:100%;padding:17px 0;border-bottom:1px solid var(--line);opacity:1;font-size:13.5px;}
+    .nav-cta-mobile{display:block;padding:19px 0 0;font-size:13.5px;}
+    .about .wrap{grid-template-columns:1fr;}
+    .about-photo{max-width:340px;position:static;margin:0 auto;}
+    .hero{height:150vh;}
+    .video-grid{
+      display:flex;grid-template-columns:none;flex-wrap:nowrap;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .video-grid::-webkit-scrollbar{display:none;}
+    .video-card{flex:0 0 78%;scroll-snap-align:start;}
+    .gallery-grid{
+      display:flex;grid-template-columns:none;flex-wrap:nowrap;
+      overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .gallery-grid::-webkit-scrollbar{display:none;}
+    .gallery-grid figure{flex:0 0 82%;scroll-snap-align:center;}
+    .ed-cols{grid-template-columns:1fr;}
+    .review-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-badges{display:none;}
+    .interlude .wrap{flex-direction:column;align-items:flex-start;text-align:left;}
+    .guide{flex-direction:column;align-items:flex-start;text-align:left;}
+    .badges-row{flex-direction:column;}
+    .badges-row span{width:100%;border-bottom:1px solid var(--line);}
+    .badges-row span:last-child{border-bottom:none;}
+    .faq-grid{grid-template-columns:1fr;gap:28px;}
+    .statement{height:78vh;}
+    .statement.statement-sm{height:54vh;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .lead{font-size:16.5px;}
+    .video-card{flex:0 0 86%;}
+    section{padding:64px 0;}
+    .hero{height:118vh;}
+    .hero-badges{top:96px;right:20px;}
+    .intro{padding-top:64px;padding-bottom:28px;}
+    #for-you{padding-top:36px;}
+    .statement{height:64vh;min-height:400px;}
+    .statement.statement-sm{height:48vh;min-height:320px;}
+    .statement-text .wrap{padding-bottom:32px;}
+    .gallery-grid figure{flex:0 0 88%;}
+    .gallery{padding-top:64px;}
+    .gallery-heading{font-size:clamp(28px,11vw,40px);padding:0 16px;margin-bottom:28px;}
+    .values-grid{margin-top:28px;padding-top:24px;}
+    .ed-row{grid-template-columns:40px 1fr;gap:18px;}
+    .badges-row span{padding:14px 16px;font-size:11px;}
+  }
+
+  /* TYPOGRAPHY: forced line counts on desktop */
+  .one-line{max-width:none !important;}
+  .intro h1.one-line,.statement-text h2.one-line{white-space:nowrap;}
+  .big-statement{max-width:none;font-size:clamp(24px,calc((100vw - 72px) / 27.5),42px);}
+  .about-title{font-size:clamp(28px,2.9vw,36px);}
+  .approach-title em{font-style:italic;font-weight:400;color:var(--muted);}
+  @media (max-width:860px){
+    .intro h1.one-line,.statement-text h2.one-line{white-space:normal;}
+    .br-desk{display:none;}
+    .big-statement{font-size:clamp(30px,8.4vw,44px);}
+  }
+  .contact-alt{display:flex;gap:28px;align-items:center;justify-content:center;}
+  .nowrap{white-space:nowrap;}
+  @media (max-width:560px){
+    .contact-buttons{flex-direction:column;align-items:center;gap:26px;}
+  }
+
+  /* VIDEO STAGE (showreel + ceremony) */
+  .reel{background:var(--black);color:#fff;overflow:hidden;padding-bottom:140px;}
+  .reel .eyebrow{color:rgba(255,255,255,.55);}
+  .reel h2{color:#fff;}
+  .reel .lead{color:rgba(255,255,255,.6);}
+  .reel-stage{position:relative;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:84px;}
+  .reel-word{
+    position:absolute;left:50%;top:74%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;line-height:1;white-space:nowrap;
+    font-size:clamp(96px,17vw,260px);letter-spacing:-.02em;
+    color:#fff;mix-blend-mode:difference;
+  }
+  .reel-card{position:relative;z-index:1;cursor:pointer;}
+  .reel-main{grid-column:1 / span 6;}
+  .reel-col{grid-column:8 / span 4;padding-top:40px;}
+  .reel-note{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.9;
+    color:rgba(255,255,255,.55);padding-left:18px;border-left:1px solid rgba(255,255,255,.3);margin-bottom:120px;
+  }
+  .reel-media{position:relative;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#1b1b1b,#343434);transition:background .6s;}
+  .reel-card:hover .reel-media{background:linear-gradient(160deg,#222,#3d3d3d);}
+  .reel-side .reel-media{aspect-ratio:3/4;}
+  .reel-media img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(1) contrast(1.06) brightness(.72);transform:scale(1.001);
+    transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .9s ease;
+  }
+  .reel-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 65%,rgba(0,0,0,.55));pointer-events:none;}
+  .reel-card:hover .reel-media img{transform:scale(1.06);filter:grayscale(0) contrast(1.02) brightness(.85);}
+  .reel-num{position:absolute;top:20px;left:22px;z-index:2;font-family:'Playfair Display',serif;font-size:15px;letter-spacing:.12em;}
+  .reel-tag{position:absolute;top:22px;right:22px;z-index:2;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+  .reel-tag i{width:7px;height:7px;border-radius:50%;background:#E5383B;animation:reel-blink 1.6s ease-in-out infinite;}
+  .reel-play{position:absolute;left:50%;top:50%;z-index:2;width:136px;height:136px;transform:translate(-50%,-50%);transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .reel-play svg{width:100%;height:100%;animation:reel-spin 16s linear infinite;}
+  .reel-play text{fill:#fff;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;text-transform:uppercase;}
+  .reel-play::before{content:'';position:absolute;inset:34px;border-radius:50%;border:1px solid rgba(255,255,255,.75);background:rgba(0,0,0,.18);backdrop-filter:blur(4px);transition:background .4s,border-color .4s;}
+  .reel-play::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;transition:border-left-color .4s;}
+  .reel-card:hover .reel-play{transform:translate(-50%,-50%) scale(1.08);}
+  .reel-card:hover .reel-play::before{background:#fff;border-color:#fff;}
+  .reel-card:hover .reel-play::after{border-left-color:#000;}
+  .reel-info{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-top:20px;}
+  .reel-info h4{margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:26px;color:#fff;white-space:nowrap;}
+  .reel-side .reel-info{flex-direction:column;gap:6px;}
+  .reel-side .reel-info h4{font-size:21px;}
+  .reel-info p{margin:0;font-size:13.5px;color:rgba(255,255,255,.55);text-align:right;}
+  .reel-side .reel-info p{text-align:left;}
+  @keyframes reel-spin{to{transform:rotate(360deg);}}
+  @keyframes reel-blink{50%{opacity:.25;}}
+  @media (max-width:860px){
+    .reel{padding-bottom:80px;}
+    .reel-stage{display:block;margin-top:52px;}
+    .reel-word{position:relative;display:block;left:auto;top:auto;transform:none;text-align:center;font-size:23vw;margin:0 0 -6.5vw;}
+    .reel-col{padding-top:0;}
+    .reel-note{margin:36px 0 28px;}
+    .reel-side{width:82%;margin-left:auto;}
+    .reel-play{width:112px;height:112px;}
+    .reel-play::before{inset:28px;}
+    .reel-info{flex-direction:column;gap:6px;}
+    .reel-info h4{font-size:22px;}
+    .reel-info p{text-align:left;}
+  }
+  .reel-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:4;}
+  .reel-card.playing .reel-play,.reel-card.playing .reel-tag,.reel-card.playing .reel-num{opacity:0;pointer-events:none;}
+  .groom-promo{cursor:pointer;}
+  .groom-promo .video-thumb{position:relative;overflow:hidden;}
+  .groom-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.8);transition:filter .6s,transform 1.2s;}
+  .groom-promo:hover .groom-poster{filter:grayscale(0) brightness(.9);transform:scale(1.04);}
+  .groom-promo .play-btn{position:relative;z-index:1;}
+  .groom-promo video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;z-index:2;}
+  /* «Тимофей, жених»: горизонтальное цветное окошко */
+  .groom-promo{width:300px !important;}
+  .groom-promo .video-thumb{aspect-ratio:16/9 !important;}
+  .groom-poster{filter:none !important;}
+  .groom-promo:hover .groom-poster{filter:brightness(1.05) !important;}
+  @media (max-width:680px){.groom-promo{width:100% !important;max-width:340px;}}
+  /* На телефоне и планшете (нет наведения) обложки видео сразу цветные */
+  @media (hover:none){.reel-media img{filter:contrast(1.02) brightness(.88) !important;}}
+  footer .legal{display:block;margin-top:8px;font-size:11.5px;opacity:.75;}
+  footer .legal a{color:inherit;border-bottom:1px solid currentColor;}
+  /* Нижняя панель на телефоне, как на странице корпоративов */
+  .tabbar{display:none;}
+  @media (max-width:860px){
+    .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:95;background:rgba(18,18,19,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:6px;box-shadow:0 18px 40px rgba(0,0,0,.35);}
+    .tabbar a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px 6px;border-radius:14px;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.6);text-decoration:none;transition:background .3s,color .3s;}
+    .tabbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;}
+    .tabbar a.on{color:#fff;background:rgba(255,255,255,.1);}
+    .tabbar a.cta{color:#111;background:#fff;}
+    body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));}
+  }
+  /* превью 23.10 */
+  .values-grid p{font-size:16px;}
+  .examples{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;border-top:1px solid var(--line);padding-top:32px;}
+  .ex-k{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+  .ex p,.ex li{font-size:17px;line-height:1.55;margin:0;}
+  .ex ul{margin:0;padding-left:20px;display:grid;gap:10px;}
+  .ex .ex-cap{margin-top:12px;font-size:14px;color:var(--muted);}
+  a.phone{color:inherit;text-decoration:none;display:inline-block;}
+  .contact-alt a{display:inline-block;padding:12px 4px;}
+  .reel-side + .reel-side{margin-top:48px;}
+  .reel-side .reel-media{aspect-ratio:4/3;}
+  .reel-note{margin-bottom:48px;}
+  @media (min-width:861px){.reel-word{left:24.5%;top:80%;font-size:clamp(96px,10vw,150px);}}
+  .reel-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:4;background:#000;}
+  @media (max-width:860px){.examples{grid-template-columns:1fr;gap:28px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Тимофей Арапов</div>
+    <div class="nav-links">
+      <a href="#for-you">Для&nbsp;кого&nbsp;я</a>
+      <a href="#videos">Видео</a>
+      <a href="#about">Кто&nbsp;я</a>
+      <a href="#approach">Подход</a>
+      <a href="#process">Процесс</a>
+      <a href="#awards">Отзывы</a>
+      <!-- <a href="#guide">Гайд</a> скрыто до готовности гайдов -->
+      <a href="#contact" class="nav-cta-mobile">Написать</a>
+    </div>
+    <a href="#contact" class="nav-cta">Написать</a>
+    <button class="menu-toggle" aria-label="Меню">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="bw" src="/images/hero-timofey.jpg" alt="Тимофей Арапов, ведущий свадеб и мероприятий">
+  <div class="hero-badges">
+    <div class="badge-big">
+      <div class="badge-title">Фина-<br>лист<br>2023</div>
+      <div class="badge-cap">Wedding Awards<br>Северо-Запад</div>
+    </div>
+    <div class="badge-big">
+      <div class="badge-title">Сере-<br>бро<br>2025</div>
+      <div class="badge-cap">Wedding Awards<br>Северо-Запад</div>
+    </div>
+    <div class="badge-stat">Ведущий<br>с&nbsp;2011&nbsp;года</div>
+    <div class="badge-stat">400+&nbsp;отзывов</div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <span class="eyebrow">Ведущий свадеб и&nbsp;мероприятий · Санкт-Петербург</span>
+    <h1 class="one-line">Ведущий, с&nbsp;которым можно быть собой</h1>
+    <p class="lead one-line">Живой юмор, настоящие разговоры и&nbsp;атмосфера, в&nbsp;которой комфортно вам, вашим родителям и&nbsp;друзьям.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Узнать, свободна&nbsp;ли&nbsp;моя дата</a>
+      <a href="#videos" class="btn btn-ghost">Смотреть промо</a>
+    </div>
+  </div>
+</section>
+
+<section id="for-you">
+  <div class="wrap">
+    <span class="eyebrow">01 · Для&nbsp;кого&nbsp;я</span>
+    <h2>Кажется, нам по&nbsp;пути, если для&nbsp;вас&nbsp;важны</h2>
+    <div class="values-grid">
+      <div><h4>Искренность</h4><p>Не&nbsp;играть в&nbsp;идеально, а&nbsp;жить.</p></div>
+      <div><h4>Душевность</h4><p>Посмеяться и&nbsp;поговорить о&nbsp;важном. Подарить родителям летающего змея, как&nbsp;символ любимого воспоминания из&nbsp;детства. Это&nbsp;пример с&nbsp;одной&nbsp;свадьбы.</p></div>
+      <div><h4>Интеллект</h4><p>Вы&nbsp;тоже проговорили про&nbsp;себя это&nbsp;слово, чтобы понять, что&nbsp;оно правильно написано?</p></div>
+      <div><h4>Юмор</h4><p>После падения арки на&nbsp;церемонии от&nbsp;ветра облегчить атмосферу поможет только юмор. Однажды я&nbsp;сказал так: «У&nbsp;кого-то есть нашатырь? У&nbsp;нас обморок».</p></div>
+      <div><h4>Комфорт</h4><p>Тосты говорят те, кто хочет, без&nbsp;принуждения. Насильно не&nbsp;тащим на&nbsp;сцену никого. Даже ведущего.</p></div>
+      <div><h4>Танцы</h4><p>В&nbsp;картотеке моего диджея и&nbsp;зумерский плейлист, и&nbsp;две песни для&nbsp;бабушки, и&nbsp;«верни мой&nbsp;2008». «Хоп&nbsp;хей ла-ла-лей» тоже&nbsp;споём.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos" class="reel">
+  <div class="wrap">
+    <span class="eyebrow">02 · Видео</span>
+    <h2 class="big-statement">Можно долго рассказывать, какой я&nbsp;ведущий.<br>Лучше покажу.</h2>
+    <p class="lead one-line">Шоурил и&nbsp;живые моменты с&nbsp;настоящих свадеб.</p>
+    <div class="reel-stage">
+      <div class="reel-word" aria-hidden="true">Showreel</div>
+      <div class="reel-card reel-main" data-kinescope="wynNqxbhsPc7SzGaK5Jf4F">
+        <div class="reel-media">
+          <img src="/images/reel-showreel.jpg?v=2" alt="Тимофей Арапов ведёт выездную свадьбу" loading="lazy">
+          <span class="reel-num">01</span>
+          <span class="reel-tag"><i></i>Rec</span>
+          <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring1" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring1" textLength="292">Смотреть · Шоурил · Смотреть · Шоурил ·</textPath></text></svg></span>
+        </div>
+        <div class="reel-info"><h4>Шоурил 2026</h4><p>Главное о&nbsp;том, как&nbsp;я&nbsp;веду, за&nbsp;несколько минут</p></div>
+      </div>
+      <div class="reel-col">
+        <div class="reel-note">Настоящие свадьбы<br>и&nbsp;живые эмоции<br>гостей</div>
+        <div class="reel-card reel-side" data-kinescope="3YyQ76eH9tXHgv5fpkBJGt">
+          <div class="reel-media">
+            <img src="/images/reel-ceremony.jpg?v=2" alt="Тимофей Арапов ведёт выездную регистрацию" loading="lazy">
+            <span class="reel-num">02</span>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring2" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring2" textLength="292">Смотреть · Церемония · Смотреть · Церемония ·</textPath></text></svg></span>
+          </div>
+          <div class="reel-info"><h4>Церемония</h4><p>Выездная регистрация целиком, 29&nbsp;минут</p></div>
+        </div>
+        <div class="reel-card reel-side" data-video="/korporativy/video/game-promo.mp4">
+          <div class="reel-media">
+            <img src="/korporativy/video/game-promo.jpg" alt="Тимофей Арапов показывает фокусы гостям" loading="lazy">
+            <span class="reel-num">03</span>
+            <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="ring3" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring3" textLength="292">Смотреть · Фокусы · Смотреть · Фокусы ·</textPath></text></svg></span>
+          </div>
+          <div class="reel-info"><h4>Фокусы</h4><p>Интерактив, в&nbsp;который включается весь&nbsp;зал</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img class="bw" src="/korporativy/images/hero-cat.jpg" alt="Тимофей Арапов с котом" loading="lazy">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow">03 · Кто&nbsp;я</span>
+      <h2 class="about-title">Обычный ведущий, который<br class="br-desk"> пару лет назад сам стал женихом</h2>
+      <p class="lead">За&nbsp;годы работы, сотни мероприятий, несколько выступлений «у&nbsp;первых лиц» (сам в&nbsp;шоке), финал Wedding Awards Северо-Запад в&nbsp;2023-м и&nbsp;серебро в&nbsp;2025-м.</p>
+            <div class="groom-promo video-card" data-video="/video/groom-2023.mp4"><div class="video-thumb"><img class="groom-poster" src="/video/groom-2023.jpg" alt="Тимофей Арапов, видео 2023" loading="lazy"><div class="play-btn"></div></div><div class="vinfo"><h4>Тимофей, жених</h4><p>Каково это, оказаться по&nbsp;другую сторону свадьбы</p></div></div>
+      <p>Пару лет назад я&nbsp;сам стал женихом, и&nbsp;решил пройти этот путь до&nbsp;конца, а&nbsp;не&nbsp;наблюдать со&nbsp;стороны. Оказалось, выбрать оттенок столовых приборов, задача не&nbsp;проще, чем&nbsp;вести вечер на&nbsp;150&nbsp;человек. А&nbsp;вопрос «зачем звать тётю Катю» волнует не&nbsp;только гостей.</p>
+      <p>Опыт «с&nbsp;другой стороны» изменил мою программу: называть каждого гостя по&nbsp;имени, слушать и&nbsp;рассказывать истории, обязательно говорить «спасибо» родителям, и&nbsp;быть на&nbsp;празднике другом, а&nbsp;не&nbsp;функцией с&nbsp;микрофоном.</p>
+      <p>Перед каждым праздником вникаю в&nbsp;историю пары: как&nbsp;познакомились, что&nbsp;было важного на&nbsp;пути друг к&nbsp;другу, кого обязательно нужно упомянуть. Узнаю, как&nbsp;зовут маму и&nbsp;лучшую подругу, и&nbsp;те&nbsp;мелочи, которые знают только близкие, и&nbsp;аккуратно вплетаю это&nbsp;в&nbsp;программу, а&nbsp;не&nbsp;в&nbsp;дежурные фразы. Поэтому гости потом говорят: «интеллигентный ведущий», то&nbsp;есть внимательнее, а&nbsp;не&nbsp;громче.</p>
+      <div class="pull-quote">«Как&nbsp;человек я&nbsp;тоже могу переживать. Но&nbsp;как&nbsp;ведущий уже: вёл свадьбу без&nbsp;жениха, пять раз за&nbsp;вечер отключался свет, двадцать минут держал зал перед выходом артиста.»</div>
+      <p>Опыт с&nbsp;2011&nbsp;года, это&nbsp;не&nbsp;про&nbsp;отсутствие страха, а&nbsp;про&nbsp;то, что&nbsp;выход есть из&nbsp;любой ситуации. Я&nbsp;уже&nbsp;сто раз в&nbsp;этом убеждался.</p>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <img class="bw" src="/images/statement-kind.jpg?v=2" alt="Тимофей Арапов смеётся вместе с гостями" loading="lazy" style="object-position:70% 30%;">
+  <div class="statement-text">
+    <div class="wrap">
+      <h2 class="one-line">Хороший ведущий, это&nbsp;не&nbsp;громче, а&nbsp;добрее.</h2>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-heading">Фотогалерея</div>
+    <div class="gallery-grid">
+    <figure><img src="/images/gallery-01.jpg?v=2" alt="Тимофей Арапов смеётся вместе с парой" loading="lazy"></figure>
+    <figure><img src="/images/gallery-02.jpg?v=2" alt="Гости запускают бумажные самолётики за свадебным столом" loading="lazy"></figure>
+    <figure><img src="/images/gallery-03.jpg?v=2" alt="Гости играют на лужайке на выездной свадьбе" loading="lazy"></figure>
+    <figure><img src="/images/gallery-04.jpg?v=2" alt="Тимофей Арапов с микрофоном в белом пиджаке" loading="lazy"></figure>
+    <figure><img src="/images/gallery-05.jpg?v=2" alt="Свадебный стол на лужайке, вид сверху" loading="lazy"></figure>
+    <figure><img src="/images/gallery-06.jpg?v=2" alt="Тимофей Арапов в белом пиджаке на вечеринке" loading="lazy"></figure>
+    <figure><img src="/images/gallery-07.jpg?v=2" alt="Тимофей Арапов ведёт свадьбу" loading="lazy"></figure>
+    <figure><img src="/images/gallery-08.jpg?v=2" alt="Выездная свадьба на лужайке, вид сверху" loading="lazy"></figure>
+    <figure><img src="/images/gallery-09.jpg?v=2" alt="Тимофей Арапов на танцполе в синем свете" loading="lazy"></figure>
+  </div>
+  <div class="gallery-cap">Живые лица. Настоящие моменты.</div>
+</section>
+
+<section class="statement">
+  <img class="bw" src="/images/scatter-fullbg.jpg" alt="Тимофей Арапов отходит в сторону, уступая внимание гостям" loading="lazy">
+  <div class="statement-text">
+    <div class="wrap">
+      <h2>Я&nbsp;не&nbsp;в&nbsp;центре свадьбы, я&nbsp;рядом. Чтобы вы&nbsp;не&nbsp;пропустили важные&nbsp;моменты.</h2>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="inset-photo">
+      <img class="bw" src="/images/scatter-window.jpg" alt="Тимофей Арапов, портрет" loading="lazy">
+    </div>
+    <span class="eyebrow">04 · Подход</span>
+    <h2 class="approach-title">Я&nbsp;начинал в&nbsp;2011-м с&nbsp;классической школы<br><em>и&nbsp;постепенно от&nbsp;неё отошёл</em></h2>
+    <p class="lead">Профессиональную базу и&nbsp;умение держать зал я&nbsp;оставил себе. А&nbsp;вот бесконечную череду конкурсов, почти&nbsp;нет.</p>
+    <div class="examples">
+      <div class="ex">
+        <span class="ex-k">Игра «Три слова»</span>
+        <p>Каждый гость пишет три слова про&nbsp;себя, а&nbsp;мы угадываем, кто это и&nbsp;с&nbsp;какой историей они&nbsp;связаны. Однажды написали «машина, озеро, трактор». Так&nbsp;мы узнали, как&nbsp;жених с&nbsp;другом утопили машину.</p>
+      </div>
+      <div class="ex">
+        <span class="ex-k">Живой разговор, а&nbsp;не&nbsp;сценарий</span>
+        <ul>
+          <li>Давайте знакомиться: кто приехал не&nbsp;из&nbsp;Петербурга? Откуда вы и&nbsp;как&nbsp;долго добирались?</li>
+          <li>Какое ваше любимое воспоминание с&nbsp;молодожёнами?</li>
+        </ul>
+        <p class="ex-cap">Примеры вопросов, которые я&nbsp;задаю гостям.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <span class="eyebrow">05 · Процесс</span>
+    <h2>Как&nbsp;проходит работа со&nbsp;мной</h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-num">1</div><div class="tl-text"><h4>Встреча или&nbsp;созвон, около часа</h4><p>До&nbsp;подписания договора открыто рассказываю, как&nbsp;строится программа, показываю примеры. Вы&nbsp;делитесь пожеланиями, и&nbsp;вместе понимаем, подходим&nbsp;ли&nbsp;друг другу.</p></div></div>
+      <div class="tl-item"><div class="tl-num">2</div><div class="tl-text"><h4>Бронирование даты</h4><p>Договор и&nbsp;15% от&nbsp;гонорара. Дата закрепляется только за&nbsp;вами. Остаток, в&nbsp;день мероприятия.</p></div></div>
+      <div class="tl-item"><div class="tl-num">3</div><div class="tl-text"><h4>Собираем программу вокруг&nbsp;вас</h4><p>Истории, люди, музыка, идеи и&nbsp;то, что&nbsp;важно именно&nbsp;вам.</p></div></div>
+      <div class="tl-item"><div class="tl-num">4</div><div class="tl-text"><h4>Остаюсь на&nbsp;связи</h4><p>Отвечаю на&nbsp;организационные вопросы с&nbsp;момента брони и&nbsp;до&nbsp;свадьбы. Да, даже если стало тревожно в&nbsp;воскресенье вечером.</p></div></div>
+      <div class="tl-item"><div class="tl-num">5</div><div class="tl-text"><h4>Финальная встреча</h4><p>За&nbsp;месяц до&nbsp;свадьбы сверяем все&nbsp;детали и&nbsp;прописываем тайминг программы.</p></div></div>
+      <div class="tl-item"><div class="tl-num">6</div><div class="tl-text"><h4>День&nbsp;Х</h4><p>Следуем таймингу, но&nbsp;всегда готовы к&nbsp;импровизации.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="wrap">
+    <span class="eyebrow">06 · Развлечения</span>
+    <h2>Развлечения, которые не&nbsp;выглядят как&nbsp;обязаловка</h2>
+    <div class="ed-list ed-cols">
+      <div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Традиции</h4><p>Обсуждаем, что&nbsp;для&nbsp;вас&nbsp;лично важно сохранить, без&nbsp;шаблона «как&nbsp;у&nbsp;всех».</p></div></div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Музыкальные паузы</h4><p>Каждые 35–40&nbsp;минут, танцы и&nbsp;отдых, музыка подбирается под&nbsp;вкус пары.</p></div></div>
+      </div>
+      <div>
+        <div class="ed-row"><div class="ed-num">·</div><div><h4>Разные поколения за&nbsp;одним столом</h4><p>Ваши друзья и&nbsp;бабушка могут сидеть рядом, и&nbsp;никому не&nbsp;должно быть неловко, не&nbsp;через отдельные «конкурсы для&nbsp;бабушек», а&nbsp;через разговор и&nbsp;внимание к&nbsp;каждому.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="interlude interlude-compact" id="corporate">
+  <div class="wrap">
+    <div>
+      <h3>Провожу и&nbsp;другие мероприятия</h3>
+      <p>Корпоративы и&nbsp;юбилеи, с&nbsp;тем&nbsp;же&nbsp;подходом.</p>
+    </div>
+    <a href="/preview/korporativy/" class="btn btn-ghost-dark">Подробнее</a>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Вопросы, которые чаще всего задают</span>
+    <div class="faq-quote">«Хочется, чтобы было весело, но&nbsp;чтобы свадьба всё&nbsp;равно оставалась про&nbsp;вас, а&nbsp;не&nbsp;про&nbsp;ведущего.»</div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>Получится&nbsp;ли&nbsp;объединить очень разных гостей и&nbsp;поколения?</h4>
+        <p>Да. Ваши друзья и&nbsp;бабушка вполне могут оказаться за&nbsp;одним разговором, дело не&nbsp;в&nbsp;конкурсах, а&nbsp;в&nbsp;том, чтобы поговорить с&nbsp;каждым.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <span class="eyebrow">07 · Награды и&nbsp;отзывы</span>
+    <h2>Опыт, который можно проверить</h2>
+    <div class="badges-row">
+      <span>Финалист Wedding Awards Северо-Запад&nbsp;2023</span>
+      <span>Серебро Wedding Awards Северо-Запад&nbsp;2025</span>
+      <span>Входил в&nbsp;десятку лучших ведущих Северо-Запада по&nbsp;версии Wedding&nbsp;Awards</span>
+      <span>400+&nbsp;отзывов</span>
+      <span>Вёл мероприятия у&nbsp;первых&nbsp;лиц</span>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <span class="fear">Хотели, чтобы ведущий чувствовал гостей</span>
+        <p>«Чутко считывал наше настроение и&nbsp;настроение гостей: где-то рассмешил, где-то растрогал до&nbsp;слёз, а&nbsp;где-то просто дал время на&nbsp;личные поздравления и&nbsp;побыть вдвоём с&nbsp;женихом. А&nbsp;викторина вообще огонь!»</p>
+        <div class="who">Анастасия Жигайло</div>
+      </div>
+      <div class="review-card">
+        <span class="fear">Боялись, что&nbsp;с&nbsp;новым человеком будет неловко</span>
+        <p>Гости, которых спросили о&nbsp;свадьбе уже&nbsp;спустя пару месяцев, независимо друг от&nbsp;друга говорили: казалось, что&nbsp;Тимофей знал их&nbsp;целую вечность, настолько легко он&nbsp;переходил от&nbsp;шуток к&nbsp;тёплым моментам.</p>
+        <div class="who">Дарина Темнова</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guide" hidden><!-- скрыто: гайды ещё не готовы -->
+  <div class="wrap">
+    <div class="guide">
+      <div class="guide-text">
+        <span class="eyebrow">Бесплатно</span>
+        <h3>Гайд: как&nbsp;выбрать ведущего на&nbsp;свадьбу</h3>
+        <p>На&nbsp;что&nbsp;обратить внимание и&nbsp;какие вопросы задать на&nbsp;первой встрече, чтобы потом не&nbsp;жалеть о&nbsp;выборе.</p>
+      </div>
+      <div class="guide-cta">
+        <a href="#" class="btn btn-primary">Скачать гайд</a>
+      </div>
+    </div>
+    <div class="guide guide-second">
+      <div class="guide-text">
+        <span class="eyebrow">Бесплатно</span>
+        <h3>Гайд необычных подарков</h3>
+        <p>Идеи подарков, которые удивят и&nbsp;запомнятся надолго.</p>
+      </div>
+      <div class="guide-cta">
+        <a href="#" class="btn btn-primary">Скачать гайд</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Контакты</span>
+    <h2>Давайте вместе создавать историю</h2>
+    <a class="phone" href="tel:+79522875375">+7&nbsp;952&nbsp;287-53-75</a>
+    <div class="contact-buttons">
+      <a href="https://t.me/+79522875375" class="btn btn-ghost-dark" target="_blank" rel="noopener">Написать в&nbsp;Telegram</a>
+      <div class="contact-alt">
+        <a href="https://vk.com/timarapov" class="text-link" target="_blank" rel="noopener">ВКонтакте</a>
+        <a href="https://wa.me/79522875375" class="text-link" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Тимофей Арапов, ведущий свадеб и&nbsp;мероприятий, <span class="nowrap">Санкт-Петербург</span>
+  <span class="legal">Самозанятый Арапов Тимофей Сергеевич, ИНН&nbsp;781714508345 · <a href="/privacy/">Политика обработки персональных данных</a> · <a href="#cookie-settings">Настройки cookie</a></span>
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  function closeMenu() {
+    if (!navLinks) return;
+    navLinks.style.display = 'none';
+    if (menuToggle) menuToggle.textContent = '☰';
+  }
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navLinks.style.display === 'flex';
+    navLinks.style.display = isOpen ? 'none' : 'flex';
+    menuToggle.textContent = isOpen ? '☰' : '✕';
+  });
+  navLinks?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMenu();
+  });
+
+  // custom cursor — comet-tail trail that stretches with movement and
+  // inverts colour (mix-blend-mode:difference) against the photo/background
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'cursor-trail';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+
+    let cssW = window.innerWidth, cssH = window.innerHeight;
+    function resize() {
+      cssW = window.innerWidth;
+      cssH = window.innerHeight;
+      canvas.width = cssW * dpr;
+      canvas.height = cssH * dpr;
+      canvas.style.width = cssW + 'px';
+      canvas.style.height = cssH + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      trail.length = 0;
+    }
+    let mx = -100, my = -100, has = false, hover = false;
+    const trail = [];
+    const TRAIL_LEN = 12;
+    resize();
+    window.addEventListener('resize', resize);
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!has) { has = true; canvas.style.opacity = '1'; }
+    });
+    document.querySelectorAll('a, button, .btn').forEach((el) => {
+      el.addEventListener('mouseenter', () => { hover = true; });
+      el.addEventListener('mouseleave', () => { hover = false; });
+    });
+
+    function render() {
+      trail.push({ x: mx, y: my });
+      if (trail.length > TRAIL_LEN) trail.shift();
+      ctx.clearRect(0, 0, cssW, cssH);
+      const n = trail.length;
+      trail.forEach((p, i) => {
+        const t = (i + 1) / n;
+        const r = (hover ? 6 : 2.5) + t * (hover ? 18 : 9);
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255,255,255,${0.12 + t * 0.88})`;
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(render);
+    }
+    render();
+  }
+</script>
+
+<script>
+  // Видео в карточках: загружается только по нажатию
+  document.querySelectorAll('.reel-card[data-kinescope]').forEach((card) => card.addEventListener('click', () => {
+    if (card.classList.contains('playing')) return;
+    const f = document.createElement('iframe');
+    f.src = 'https://kinescope.io/embed/' + card.dataset.kinescope + '?autoplay=1';
+    f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+    f.setAttribute('allowfullscreen', ''); f.title = 'Видео';
+    card.querySelector('.reel-media').appendChild(f);
+    card.classList.add('playing');
+  }));
+  document.querySelectorAll('.reel-card[data-video]').forEach((card) => card.addEventListener('click', () => {
+    if (card.classList.contains('playing')) return;
+    const v = document.createElement('video');
+    v.src = card.dataset.video; v.controls = true; v.playsInline = true; v.autoplay = true;
+    card.querySelector('.reel-media').appendChild(v);
+    card.classList.add('playing');
+  }));
+</script>
+<script>
+  // Окошко «Тимофей, жених»: по нажатию видео на весь экран
+  document.querySelectorAll('.groom-promo[data-video]').forEach((card) => card.addEventListener('click', () => {
+    let v = card.querySelector('video');
+    if (!v) {
+      v = document.createElement('video');
+      v.src = card.dataset.video; v.controls = true; v.playsInline = true;
+      card.querySelector('.video-thumb').appendChild(v);
+    }
+    v.play().catch(() => {});
+    if (v.requestFullscreen) v.requestFullscreen().catch(() => {});
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+  }));
+</script>
+<nav class="tabbar" id="tabbar" aria-label="Разделы страницы">
+  <a href="#videos" data-sec="videos"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M10 8.8v6.4l5.2-3.2z"/></svg>Видео</a>
+  <a href="#about" data-sec="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4.1-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg>Кто&nbsp;я</a>
+  <a href="#process" data-sec="process"><svg viewBox="0 0 24 24"><path d="M5 6.5h14M5 12h14M5 17.5h9"/></svg>Процесс</a>
+  <a href="#faq" data-sec="faq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 014.8.9c0 1.7-2.4 2.2-2.4 3.7"/><circle cx="12" cy="16.9" r=".6" fill="currentColor"/></svg>Вопросы</a>
+  <a href="#contact" data-sec="contact" class="cta"><svg viewBox="0 0 24 24"><path d="M4.5 6.5h15v10h-9l-4 3.5v-3.5h-2z"/></svg>Написать</a>
+</nav>
+<script>
+  (function () {
+    const tabbar = document.getElementById('tabbar');
+    const links = [...tabbar.querySelectorAll('a')];
+    const secs = links.map((a) => document.getElementById(a.dataset.sec));
+    function onTab() {
+      let cur = -1;
+      secs.forEach((sec, i) => { if (sec && sec.getBoundingClientRect().top < innerHeight * 0.45) cur = i; });
+      links.forEach((a, i) => a.classList.toggle('on', i === cur && !a.classList.contains('cta')));
+    }
+    window.addEventListener('scroll', onTab, { passive: true });
+    onTab();
+  })();
+</script>
+</body>
+</html>

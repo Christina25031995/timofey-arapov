@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /korporativy/kp/
+Disallow: /preview/
 Disallow: /privacy/
 Disallow: /soglasie/
 
