@@ -836,16 +836,26 @@
   html,body{overflow-x:clip;}
   /* Процесс: таймлайн */
   #process .steps{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;grid-template-rows:none !important;grid-auto-flow:row !important;column-gap:40px !important;border-top:0 !important;position:relative;margin-top:24px;padding:0 !important;overflow:visible !important;}
-  #process .steps::before{content:'';position:absolute;left:0;right:0;top:76px;height:1px;background:var(--line);}
   #process .step,#process .step + .step{display:flex !important;flex-direction:column !important;gap:0 !important;padding:0 !important;border:0 !important;background:none !important;flex:none !important;margin:0 !important;position:relative;}
   #process .step .dotn{font-family:var(--serif);font-style:italic;font-size:56px !important;line-height:1;color:var(--accent) !important;margin:0 0 30px;grid-row:auto !important;}
   #process .step::after{content:'';position:absolute;left:0;top:72px;width:9px;height:9px;border-radius:50%;background:var(--accent);}
+  #process .step::before{content:'';position:absolute;left:0;right:-40px;top:76px;height:1px;background:var(--line);}
+  #process .step:last-child::before{right:0;}
+  @media (min-width:901px) and (prefers-reduced-motion:no-preference){
+    #process .steps.anim .step::before{transform:scaleX(0);transform-origin:left;transition:transform .55s linear;transition-delay:calc(var(--i) * .55s);}
+    #process .steps.anim .step::after{transform:scale(0);transition:transform .35s ease;transition-delay:calc(var(--i) * .55s);}
+    #process .steps.anim .step > *{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i) * .55s + .15s);}
+    #process .steps.anim.go .step::before{transform:scaleX(1);}
+    #process .steps.anim.go .step::after{transform:scale(1);}
+    #process .steps.anim.go .step > *{opacity:1;transform:none;}
+  }
   #process .step > div{display:block !important;}
   #process .step h3{font-size:22px !important;margin:0 0 10px !important;}
   #process .step p{font-size:14.5px !important;line-height:1.55;color:var(--muted);margin:0;max-width:none;}
   @media (max-width:900px){
     #process .steps{grid-template-columns:1fr !important;row-gap:30px;padding-left:28px !important;margin-top:8px;}
-    #process .steps::before{left:4px;right:auto;top:6px;bottom:6px;width:1px;height:auto;}
+    #process .steps::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--line);}
+    #process .step::before{display:none;}
     #process .step::after{left:-28px;top:14px;}
     #process .step .dotn{font-size:30px !important;margin:0 0 8px;}
   }
@@ -1613,6 +1623,15 @@
       requestAnimationFrame(loop);
     })();
   }
+</script>
+<script>
+  // Таймлайн «Как проходит работа»: линия прорисовывается слева направо
+  (function(){
+    const box=document.querySelector('#process .steps'); if(!box||!('IntersectionObserver' in window)) return;
+    [...box.children].forEach((el,i)=>el.style.setProperty('--i',i));
+    box.classList.add('anim');
+    new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){box.classList.add('go');o.disconnect();}})},{threshold:.35}).observe(box);
+  })();
 </script>
 </body>
 </html>

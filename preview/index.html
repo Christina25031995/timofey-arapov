@@ -502,7 +502,16 @@
   /* правки Кристины 23.10 */
   @media (min-width:861px){.statement h2.two-lines{max-width:none;}.statement h2.two-lines span{display:block;white-space:nowrap;}}
   .timeline{display:grid !important;grid-template-columns:repeat(3,1fr);gap:0 40px;}
-  .timeline .tl-item{border-bottom:none;border-top:1px solid rgba(255,255,255,.14);flex-direction:column;gap:14px;padding:26px 0 30px;}
+  .timeline .tl-item{border-bottom:none;border-top:0;flex-direction:column;gap:14px;padding:26px 0 30px;position:relative;}
+  .timeline .tl-item::before{content:'';position:absolute;left:0;right:-40px;top:0;height:1px;background:rgba(255,255,255,.22);}
+  .timeline .tl-item:nth-child(3n)::before{right:0;}
+  @media (min-width:861px) and (prefers-reduced-motion:no-preference){
+    .timeline.anim .tl-item::before{transform:scaleX(0);transform-origin:left;transition:transform .45s linear;transition-delay:calc(var(--i) * .45s);}
+    .timeline.anim .tl-item > *{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i) * .45s + .12s);}
+    .timeline.anim.go .tl-item::before{transform:scaleX(1);}
+    .timeline.anim.go .tl-item > *{opacity:1;transform:none;}
+  }
+  @media (max-width:860px){.timeline .tl-item::before{right:0;}}
   .timeline .tl-num{align-self:flex-start;flex:none;width:44px;height:44px;}
   .ideas-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin-top:8px;}
   .ideas-row .ed-row{grid-template-columns:1fr;gap:0;border-bottom:none;}
@@ -949,6 +958,15 @@
     }
     window.addEventListener('scroll', onTab, { passive: true });
     onTab();
+  })();
+</script>
+<script>
+  // Таймлайн «Как проходит работа со мной»: линия прорисовывается слева направо
+  (function(){
+    const box=document.querySelector('#process .timeline'); if(!box||!('IntersectionObserver' in window)) return;
+    [...box.children].forEach((el,i)=>el.style.setProperty('--i',i));
+    box.classList.add('anim');
+    new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){box.classList.add('go');o.disconnect();}})},{threshold:.3}).observe(box);
   })();
 </script>
 </body>
