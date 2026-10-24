@@ -23,7 +23,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<script src="/cookie-consent.js" defer></script>
+<script src="/preview/cookie-consent.js" defer></script>
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
@@ -104,7 +104,7 @@
   .nowrap{white-space:nowrap;}
   h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em;line-height:1.08;}
   h2{font-size:clamp(34px,4.4vw,64px);line-height:1.04;}
-  h2 em,h1 em{font-style:italic;}
+  h2 em,h1 em{font-style:normal;}
   h3{font-size:22px;line-height:1.25;font-weight:500;}
   .eyebrow{display:flex;align-items:baseline;gap:18px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:34px;}
   .eyebrow::before{counter-increment:sec;content:'(' counter(sec,decimal-leading-zero) ')';font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:0;text-transform:none;color:var(--accent);}
@@ -879,6 +879,14 @@
   .story ol{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15px;line-height:1.5;}
   .stories{padding:88px 0;}
   @media (max-width:900px){.story-grid{grid-template-columns:1fr;gap:36px;}.story .task{font-size:19px;}}
+  /* дизайн-правки 24.10: без подписей над заголовками, крупнее текст, ролики без рамок */
+  .eyebrow{display:none !important;}
+  .fear > div{color:rgba(243,240,234,.62);}
+  .case p,.case li,.off-item p,.rs-row span,.pack li,.price-factors li,.doc p,.after li,.term p,.fcard li,.story .note,.story ol,.fmt-content li,.step .you,.aud dd,.faq-list .ans,.cta-band p,.step p,#process .step p,.sector .names,.fcard-sub{font-size:16.5px;}
+  .vinfo p,.stat > span,.fact > span,.price span,.aud .role,.hero-photo .rec,.case-phone figcaption i{font-size:14px;}
+  .case-phone .phone{aspect-ratio:9/16;border-radius:0;padding:0;background:#111;border:0;box-shadow:none;}
+  .case-phone .phone::before{content:none;}
+  .phone-screen{border-radius:0;}
 </style>
 </head>
 <body>

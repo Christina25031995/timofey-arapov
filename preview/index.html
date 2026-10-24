@@ -18,7 +18,7 @@
 <meta property="og:description" content="Ведущий свадеб и мероприятий в Санкт-Петербурге с 2011 года. Живой юмор и настоящий контакт с гостями.">
 <meta property="og:image" content="https://arapovtimofey.ru/images/hero-timofey.jpg">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<script src="/cookie-consent.js" defer></script>
+<script src="/preview/cookie-consent.js" defer></script>
 <style>
   :root{
     --bg:#FFFFFF;
@@ -445,7 +445,7 @@
   @media (max-width:860px){
     .reel{padding-bottom:80px;}
     .reel-stage{display:block;margin-top:52px;}
-    .reel-word{position:relative;display:block;left:auto;top:auto;transform:none;text-align:center;font-size:23vw;margin:0 0 -6.5vw;}
+    .reel-word{position:relative;display:block;left:auto;top:auto;transform:none;text-align:center;font-size:23vw;margin:0 0 14px;}
     .reel-col{padding-top:0;}
     .reel-note{margin:36px 0 28px;}
     .reel-side{width:82%;margin-left:auto;}
@@ -496,7 +496,7 @@
   .reel-side .reel-media{aspect-ratio:4/3;}
   .reel-media img[src*="reel-ceremony"]{object-position:center 4%;}
   .reel-note{margin-bottom:48px;}
-  @media (min-width:861px){.reel-word{left:24.5%;top:80%;font-size:clamp(96px,10vw,150px);}}
+  @media (min-width:861px){.reel-word{left:-4px;top:auto;bottom:96px;transform:none;font-size:clamp(96px,10vw,150px);}}
   .reel-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:4;background:#000;}
   @media (max-width:860px){.examples{grid-template-columns:1fr;gap:28px;}}
   /* правки Кристины 23.10 */
@@ -530,6 +530,11 @@
     .award-row div:last-child{grid-column:span 2;border-bottom:none;}
   }
   @media (max-width:420px){.timeline{grid-template-columns:1fr;}.timeline .tl-item{flex-direction:row;gap:18px;padding:20px 0;}.timeline .tl-num{width:36px;height:36px;font-size:14px;}}
+  /* дизайн-правки 24.10: без подписей и номеров над заголовками, крупнее текст */
+  .eyebrow{display:none !important;}
+  .intro .eyebrow,.faq .eyebrow{display:block !important;font-size:16px;letter-spacing:0;text-transform:none;margin-bottom:14px;}
+  .values-grid p,.faq-item p,.tl-text p,.interlude-compact p,.ed-row p,.interlude p,.ex .ex-cap{font-size:16px;}
+  .reel-info p,.video-card .vinfo p,.award-row span{font-size:14px;}
 </style>
 </head>
 <body>
@@ -601,8 +606,8 @@
     <h2 class="big-statement">Можно долго рассказывать, какой я&nbsp;ведущий.<br>Лучше покажу.</h2>
     <p class="lead one-line">Шоурил и&nbsp;живые моменты с&nbsp;настоящих свадеб.</p>
     <div class="reel-stage">
-      <div class="reel-word" aria-hidden="true">Showreel</div>
       <div class="reel-card reel-main" data-kinescope="wynNqxbhsPc7SzGaK5Jf4F">
+        <div class="reel-word" aria-hidden="true">Showreel</div>
         <div class="reel-media">
           <img src="/images/reel-showreel.jpg?v=2" alt="Тимофей Арапов ведёт выездную свадьбу" loading="lazy">
           <span class="reel-num">01</span>
