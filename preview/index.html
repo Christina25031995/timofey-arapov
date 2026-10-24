@@ -837,7 +837,7 @@
   const navLinks = document.querySelector('.nav-links');
   function closeMenu() {
     if (!navLinks) return;
-    navLinks.style.display = 'none';
+    navLinks.style.display = '';
     if (menuToggle) menuToggle.textContent = '☰';
   }
   menuToggle?.addEventListener('click', () => {
